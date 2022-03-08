@@ -19,15 +19,9 @@ yarn
 yarn start
 ```
 
-## Run tests
-
-```sh
-yarn test
-```
-
 ## Author
 
-👤 **정영웅**
+👤 **영웅**
 
 - CTO
 - PM
@@ -36,7 +30,7 @@ yarn test
 
 - Designer
 
-👤 **이효범**
+👤 **범**
 
 - Developer
 - Website: https://awesomeimport.site/
