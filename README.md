@@ -4,9 +4,10 @@
 
 > 🥰 똑똑한 재테크를 위한 필수 월급 관리 어플 및 공인노무사 중개 플랫폼
 
-### 🏠 [Homepage](http://www.everypd.com/)
+### 📱 [App Store](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%8D%B0%EC%9D%B4-payday/id1598231344)
 
-### ✨ [Demo](https://paydayapp.netlify.app/)
+### 💻 [Web Demo](https://paydayapp.netlify.app/)
+
 
 
 ## Install
@@ -25,15 +26,15 @@ yarn start
 
 👤 **영웅**
 
-- CTO
-- PM
+- _**CTO**_
+- Email: pledge1226@naver.com
 
 👤 **해**
 
-- Designer
+- _**Designer**_
 
 👤 **범**
 
-- Developer
+- _**Developer**_
 - Website: https://awesomeimport.site/
 - Github: [@createhb21](https://github.com/createhb21)
