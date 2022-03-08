@@ -1,7 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { featurePhone, featurePhone2 } from '../../../assets';
-import { useScrollClipPath } from '../../../hooks';
+import {
+  featurePhone,
+  featurePhone2,
+  twinkle1,
+  twinkle2,
+  bankBook,
+} from '../../../assets';
+import { useScrollFadeIn, useScrollClipPath } from '../../../hooks';
 
 const S = {
   Wrapper: styled.section`
@@ -42,17 +48,44 @@ const S = {
   ListItem: styled.p`
     ${(props) => props.theme.typography.description};
     &:nth-child(2) {
+      font-weight: bold;
       color: ${(props) => props.theme.palette.darkPurple};
     }
   `,
   Image: styled.div`
     width: 580px;
     height: 580px;
-    background: #c9e0fe;
+    background: ${(props) => props.theme.palette.secondary};
     border-radius: 50%;
     position: relative;
   `,
-  Phone1: styled.div`
+  BankBook: styled.span`
+    width: 155px;
+    height: 95px;
+    position: absolute;
+    top: 5px;
+    left: 245px;
+    background: no-repeat center/cover url(${bankBook});
+
+    z-index: 2;
+  `,
+  Twinkle1: styled.span`
+    width: 150px;
+    height: 106px;
+    position: absolute;
+    top: -30px;
+    left: -50px;
+    background: no-repeat center/cover url(${twinkle1});
+  `,
+  Twinkle2: styled.span`
+    width: 150px;
+    height: 106px;
+    position: absolute;
+    top: 20px;
+    right: -65px;
+    background: no-repeat center/cover url(${twinkle2});
+  `,
+  Phone1: styled.span`
     width: 100%;
     height: 550px;
     position: absolute;
@@ -60,7 +93,7 @@ const S = {
     left: -150px;
     background: no-repeat center/cover url(${featurePhone});
   `,
-  Phone2: styled.div`
+  Phone2: styled.span`
     width: 100%;
     height: 550px;
     position: absolute;
@@ -78,9 +111,14 @@ const FEAURE_ITEMS = [
 
 const Features = () => {
   const animatedList = useScrollClipPath();
+  const animatedTwinkle = {
+    0: useScrollFadeIn('up'),
+    1: useScrollFadeIn('up'),
+    2: useScrollFadeIn('up'),
+  };
   const animatedImage = {
-    0: useScrollClipPath('up'),
-    1: useScrollClipPath('up', 0.2),
+    0: useScrollClipPath('up', 0.3),
+    1: useScrollClipPath('up', 0.5),
   };
 
   return (
@@ -99,6 +137,9 @@ const Features = () => {
         </S.List>
       </S.TextWrapper>
       <S.Image>
+        <S.BankBook {...animatedTwinkle[0]} />
+        <S.Twinkle1 {...animatedTwinkle[1]} />
+        <S.Twinkle2 {...animatedTwinkle[2]} />
         <S.Phone1 {...animatedImage[0]} />
         <S.Phone2 {...animatedImage[1]} />
       </S.Image>

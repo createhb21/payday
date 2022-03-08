@@ -13,6 +13,14 @@ const S = {
     display: flex;
     flex-direction: column;
     align-items: center;
+    & > button {
+      border: 1px solid ${(props) => props.theme.palette.primary};
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        background: transparent;
+        color: ${(props) => props.theme.palette.black};
+      }
+    }
   `,
   Label: styled.p`
     display: inline-block;
@@ -133,7 +141,7 @@ const Counselor = () => {
           </S.ListItem>
         ))}
       </S.List>
-      <Button fill="outline">More Works</Button>
+      <Button fill="solid">앱 다운로드하기</Button>
     </S.Wrapper>
   );
 };

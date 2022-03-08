@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button, TextField } from '../../../components';
 import { contactImage } from '../../../assets';
+import { googleForm } from '../../../constant';
+import { Button, TextField } from '../../../components';
 import { useScrollFadeIn, useScrollCount } from '../../../hooks';
 
 const S = {
@@ -53,6 +54,11 @@ const S = {
     }
     button {
       width: 70%;
+
+      a {
+        text-decoration: none;
+        color: ${(props) => props.theme.palette.white};
+      }
     }
   `,
 };
@@ -66,6 +72,10 @@ const AppStore = () => {
   };
 
   const countItem = useScrollCount(4.9, 0, true, 150);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <S.Wrapper>
@@ -85,12 +95,14 @@ const AppStore = () => {
           <br />
           App store 별점 <span {...countItem}>0</span>
         </S.Description>
-        <S.Form {...animatedItem[3]}>
-          <TextField type="text" placeholder="Name" />
-          <TextField type="text" placeholder="Work Email Address" />
-          <TextField type="text" placeholder="Company Name" />
+        <S.Form {...animatedItem[3]} onSubmit={handleSubmit}>
+          <TextField type="text" placeholder="Name" readOnly />
+          <TextField type="text" placeholder="Work Email Address" readOnly />
+          <TextField type="text" placeholder="Company Name" readOnly />
           <Button fill="solid" type="submit">
-            Become a partner
+            <a target="_blank" href={googleForm} rel="noopener noreferrer">
+              Become a partner
+            </a>
           </Button>
         </S.Form>
       </S.TextWrapper>

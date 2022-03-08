@@ -88,48 +88,54 @@ const S = {
   `,
 };
 
-const Footer = () => (
-  <S.Wrapper>
-    <S.Info>
-      <S.Logo>PAYDAY</S.Logo>
-      <S.Text>
-        <span>pledge1226@naver.com</span>
-        <span>+10 4745 9497</span>
-        <span>33 Hangeulbiseok-ro 24da-gil</span>
-      </S.Text>
-    </S.Info>
-    <S.Menu>
-      <S.MenuTitle>Quick Links</S.MenuTitle>
-      <S.MenuItem target="_blank" href={calendly} rel="noopener noreferrer">
-        Contact Us
-      </S.MenuItem>
-      <S.MenuItem target="_blank" href={googleForm} rel="noopener noreferrer">
-        For CPLA
-      </S.MenuItem>
-      <S.MenuItem>Serivces</S.MenuItem>
-    </S.Menu>
-    <S.Menu>
-      <S.MenuTitle>Services</S.MenuTitle>
-      <S.MenuItem target="_blank" href={appStore} rel="noopener noreferrer">
-        App Store
-      </S.MenuItem>
-      <S.MenuItem>Google Play</S.MenuItem>
-      <S.MenuItem>Frequently Ask</S.MenuItem>
-    </S.Menu>
-    <S.Subscribe>
-      <S.MenuTitle>Subscribe</S.MenuTitle>
-      <S.Form>
-        <TextField type="text" placeholder="Enter Your Email" />
-        <Button fill="solid" type="submit">
-          Subscribe
-        </Button>
-      </S.Form>
-      <S.Text>Let's subscribe our serviece, Payday! </S.Text>
-    </S.Subscribe>
-    <S.Bottom>
-      <span>PAYDAY © 2022</span>
-    </S.Bottom>
-  </S.Wrapper>
-);
+const Footer = () => {
+  const onSubscribe = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <S.Wrapper>
+      <S.Info>
+        <S.Logo>PAYDAY</S.Logo>
+        <S.Text>
+          <span>pledge1226@naver.com</span>
+          <span>+10 4745 9497</span>
+          <span>33 Hangeulbiseok-ro 24da-gil</span>
+        </S.Text>
+      </S.Info>
+      <S.Menu>
+        <S.MenuTitle>Quick Links</S.MenuTitle>
+        <S.MenuItem target="_blank" href={calendly} rel="noopener noreferrer">
+          Contact Us
+        </S.MenuItem>
+        <S.MenuItem target="_blank" href={googleForm} rel="noopener noreferrer">
+          For CPLA
+        </S.MenuItem>
+        <S.MenuItem>Serivces</S.MenuItem>
+      </S.Menu>
+      <S.Menu>
+        <S.MenuTitle>Services</S.MenuTitle>
+        <S.MenuItem target="_blank" href={appStore} rel="noopener noreferrer">
+          App Store
+        </S.MenuItem>
+        <S.MenuItem>Google Play</S.MenuItem>
+        <S.MenuItem>Frequently Ask</S.MenuItem>
+      </S.Menu>
+      <S.Subscribe>
+        <S.MenuTitle>Subscribe</S.MenuTitle>
+        <S.Form onSubmit={onSubscribe}>
+          <TextField type="text" placeholder="Enter Your Email" />
+          <Button fill="solid" type="submit">
+            Subscribe
+          </Button>
+        </S.Form>
+        <S.Text>Let's subscribe our serviece, Payday! </S.Text>
+      </S.Subscribe>
+      <S.Bottom>
+        <span>PAYDAY © 2022</span>
+      </S.Bottom>
+    </S.Wrapper>
+  );
+};
 
 export default Footer;

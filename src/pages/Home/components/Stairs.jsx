@@ -1,11 +1,25 @@
 import React from 'react';
-import styled from 'styled-components';
-import { useScrollCount } from '../../../hooks';
+import styled, { keyframes } from 'styled-components';
+
+import { keywords } from '../../../constant';
+import { useScrollFadeIn } from '../../../hooks';
+import { useScrollTextIn } from '../../../hooks';
+
+const show = keyframes`
+    from {
+      -webkit-text-stroke: 1px #91b1ff;
+      -webkit-text-fill-color: #ffffff;
+    }
+    to {
+      -webkit-text-stroke: unset;
+      -webkit-text-fill-color: #91b1ff;
+    }
+`;
 
 const S = {
   Background: styled.section`
     width: 100%;
-    background-color: ${(props) => props.theme.palette.background};
+    /* background-color: ${(props) => props.theme.palette.background}; */
   `,
   Wrapper: styled.div`
     width: 100%;
@@ -24,6 +38,32 @@ const S = {
       border: 2px solid ${(props) => props.theme.palette.white};
       border-top: none;
       border-bottom: none;
+    }
+  `,
+  Article: styled.div`
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .stairs {
+      font-weight: 900;
+      font-size: 4.25rem;
+      line-height: 1.2;
+      -webkit-text-stroke: 1px #91b1ff;
+      -webkit-text-fill-color: #ffffff;
+    }
+
+    .stairs.is-running {
+      animation: ${show} 2.5s forwards cubic-bezier(0, 0, 0.2, 1);
+      /* -webkit-text-stroke: unset;
+      -webkit-text-fill-color: #91b1ff; */
+    }
+
+    span {
+      font-size: 3.5rem;
+      color: #2b51a9;
     }
   `,
   Number: styled.span`
@@ -47,49 +87,49 @@ const S = {
   `,
 };
 
-const Stairs_ITEMS = [
-  {
-    title: 'Total Projects',
-    number: 630,
-    unit: '+',
-    description: 'Ipsum faucibus vitae aliquet nec ullamcorper sit amet risus.',
-  },
-  {
-    title: 'Partners',
-    number: 124,
-    unit: '',
-    description:
-      'Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus.',
-  },
-  {
-    title: 'Business Success',
-    number: 92,
-    unit: '%',
-    description:
-      'Porttitor rhoncus dolor purus non enim praesent elementum facilisis.',
-  },
-];
-
 const Stairs = () => {
-  const countItem = {
-    0: useScrollCount(630),
-    1: useScrollCount(124),
-    2: useScrollCount(92),
+  // const animatedItem = {
+  //   0: useScrollTextIn('down', 2),
+  //   1: useScrollTextIn('down', 2),
+  //   2: useScrollTextIn('down', 2),
+  //   3: useScrollTextIn('down', 2),
+  //   4: useScrollTextIn('down', 2),
+  //   5: useScrollTextIn('down', 2),
+  //   6: useScrollTextIn('down', 2),
+  //   7: useScrollTextIn('down', 2),
+  //   8: useScrollTextIn('down', 2),
+  //   9: useScrollFadeIn('down', 2, 0.9),
+  // };
+
+  // const animatedItem = Array(keywords.length).fill(
+  //   useScrollTextIn('right', 1.5),
+  // );   // How to iterate ???
+
+  const animatedItem = {
+    0: useScrollTextIn('right', 1.5),
+    1: useScrollTextIn('right', 1.5),
+    2: useScrollTextIn('right', 1.5),
+    3: useScrollTextIn('right', 1.5),
+    4: useScrollTextIn('right', 1.5),
+    5: useScrollTextIn('right', 1.5),
+    6: useScrollTextIn('right', 1.5),
+    7: useScrollTextIn('right', 1.5),
+    8: useScrollTextIn('right', 1.5),
   };
+
+  const animationPayday = useScrollFadeIn('down', 2, 0.5);
 
   return (
     <S.Background>
       <S.Wrapper>
-        <S.List>
-          {Stairs_ITEMS.map((item, index) => (
-            <S.ListItem key={item.title}>
-              <S.Number {...countItem[index]}>0</S.Number>
-              <S.Unit>{item.unit}</S.Unit>
-              <S.Title>{item.title}</S.Title>
-              <S.Description>{item.description}</S.Description>
-            </S.ListItem>
+        <S.Article>
+          {keywords.map((item, index) => (
+            <p className="stairs" {...animatedItem[index]}>
+              {item}
+            </p>
           ))}
-        </S.List>
+          <span {...animationPayday}>PAYDAY에서 해결해 드립니다!</span>
+        </S.Article>
       </S.Wrapper>
     </S.Background>
   );

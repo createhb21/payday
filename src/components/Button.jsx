@@ -9,7 +9,7 @@ const S = {
     border-radius: 0.5rem;
     box-sizing: border-box;
     cursor: pointer;
-    ${props => props.theme.typography.button};
+    ${(props) => props.theme.typography.button};
     background-color: ${({ theme, fill }) =>
       fill === 'solid' ? theme.palette.primary : 'transparent'};
     width: fit-content;
@@ -23,6 +23,6 @@ const S = {
   `,
 };
 
-const Button = props => <S.Button {...props} />;
+const Button = (props) => <S.Button {...props} />;
 
 export default Button;
