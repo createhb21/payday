@@ -36,5 +36,4 @@ yarn start
 👤 **범**
 
 - _**Developer**_
-- Website: https://awesomeimport.site/
 - Github: [@createhb21](https://github.com/createhb21)
