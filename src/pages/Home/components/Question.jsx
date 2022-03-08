@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { questionMark } from '../../../assets';
 import { useScrollFadeIn } from '../../../hooks';
 
 const S = {

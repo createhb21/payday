@@ -127,7 +127,7 @@ const Footer = () => (
       <S.Text>Let's subscribe our serviece, Payday! </S.Text>
     </S.Subscribe>
     <S.Bottom>
-      <span>Lorem © 2019</span>
+      <span>PAYDAY © 2022</span>
     </S.Bottom>
   </S.Wrapper>
 );
