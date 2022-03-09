@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import Button from './Button';
 import TextField from './TextField';
+import { SnackContext } from '../pages/Home/Layout';
 import { calendly, googleForm, appStore } from '../constant';
 
 const S = {
@@ -89,8 +90,10 @@ const S = {
 };
 
 const Footer = () => {
+  const { setVisible } = useContext(SnackContext);
   const onSubscribe = (e) => {
     e.preventDefault();
+    setVisible(true);
   };
 
   return (

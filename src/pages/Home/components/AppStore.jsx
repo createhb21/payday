@@ -38,13 +38,13 @@ const S = {
       transform: rotateY(180deg);
     }
     .shape-fill {
-      fill: #ffffff;
+      fill: ${(props) => props.theme.palette.white};
     }
   `,
   Wrapper: styled.article`
     width: 100%;
     max-width: 1180px;
-    height: 1180px;
+    height: 950px;
     margin: auto;
     padding: 120px 0;
     display: flex;
@@ -82,7 +82,7 @@ const S = {
   `,
   Description: styled.p`
     ${(props) => props.theme.typography.description};
-    color: ${(props) => props.theme.palette.black};
+    color: ${(props) => props.theme.palette.white};
     margin-bottom: 2rem;
   `,
   Form: styled.form`

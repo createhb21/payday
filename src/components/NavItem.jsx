@@ -49,8 +49,6 @@ const S = {
 
     a {
       color: ${(props) => props.theme.palette.gray};
-      color: ${({ isScroll, theme }) =>
-        isScroll ? theme.palette.black : theme.palette.gray};
       font-size: 1.12rem;
       position: absolute;
       list-style: none;

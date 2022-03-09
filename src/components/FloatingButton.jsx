@@ -35,7 +35,7 @@ const S = {
   `,
 };
 
-export default function FloatingButton({ src, isScroll }) {
+export default function FloatingButton({ isScroll }) {
   const scrollIntoTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

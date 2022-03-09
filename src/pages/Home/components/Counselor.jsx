@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { worksImage01, worksImage02, worksImage03 } from '../../../assets';
+import { counselorPhone1, counselorPhone2 } from '../../../assets';
 import { Button } from '../../../components';
 import { useScrollFadeIn } from '../../../hooks';
 
@@ -38,82 +38,39 @@ const S = {
     ${(props) => props.theme.typography.description};
     color: ${(props) => props.theme.palette.black};
     text-align: center;
+    margin-bottom: 6rem;
+  `,
+
+  List: styled.div`
+    width: 580px;
+    height: 580px;
+    background: ${(props) => props.theme.palette.secondary};
+    border-radius: 50%;
+    position: relative;
     margin-bottom: 4rem;
   `,
-  List: styled.ul`
+  Phone1: styled.div`
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 4rem;
+    height: 550px;
+    position: absolute;
+    top: 30px;
+    left: -160px;
+    background: no-repeat center/cover url(${counselorPhone1});
   `,
-  ListItem: styled.li`
-    width: 380px;
-    box-shadow: 0 0 16px 8px rgba(0, 0, 0, 0.03);
-    border-radius: 0.5rem;
-  `,
-  ItemImage: styled.div`
+  Phone2: styled.div`
     width: 100%;
-    height: 380px;
-    border-radius: 0.5rem 0.5rem 0 0;
-    background: no-repeat center/cover url(${(props) => props.image});
-  `,
-  TextContainer: styled.div`
-    padding: 2rem;
-  `,
-  ItemTitle: styled.h3`
-    ${(props) => props.theme.typography.heading};
-    color: ${(props) => props.theme.palette.black};
-    margin-bottom: 0.75rem;
-  `,
-  ItemLabel: styled.p`
-    ${(props) => props.theme.typography.caption};
-    color: ${(props) => props.theme.palette.gray};
-    font-weight: 400;
-    margin-bottom: 1.5rem;
-  `,
-  ItemDesciption: styled.p`
-    ${(props) => props.theme.typography.description};
-    margin-bottom: 1.5rem;
-  `,
-  TextButton: styled.button`
-    width: fit-content;
-    padding: 0;
-    ${(props) => props.theme.typography.textbutton};
-    color: ${(props) => props.theme.palette.secondary};
-    cursor: pointer;
+    height: 550px;
+    position: absolute;
+    top: 30px;
+    right: -160px;
+    background: no-repeat center/cover url(${counselorPhone2});
   `,
 };
-
-const WORKS_ITEMS = [
-  {
-    image: worksImage01,
-    title: 'Volutpat odio',
-    label: 'Dec 14th, 2019',
-    description:
-      'Facilisis mauris sit amet massa. Commodo odio aenean sed adipiscing. In hac habitasse platea dictumst.',
-  },
-  {
-    image: worksImage02,
-    title: 'Arcu ac tortor dignissim',
-    label: 'Dec 14th, 2019',
-    description:
-      'Convallis aenean et tortor at. Pretium viverra suspendisse potenti nullam ac tortor vitae purus.',
-  },
-  {
-    image: worksImage03,
-    title: 'Eros donec ac odio',
-    label: 'Dec 14th, 2019',
-    description:
-      'Tempor orci dapibus ultrices. Elementum nibh tellus molestie nunc. Et magnis dis parturient montes nascetur.',
-  },
-];
 
 const Counselor = () => {
   const animatedItem = {
     0: useScrollFadeIn('left', 1),
     1: useScrollFadeIn('left', 1, 0.2),
-    2: useScrollFadeIn('left', 1, 0.4),
   };
 
   return (
@@ -129,17 +86,8 @@ const Counselor = () => {
         복잡한 과정은 건너뛰고 한번에!
       </S.Description>
       <S.List>
-        {WORKS_ITEMS.map((item, index) => (
-          <S.ListItem key={item.title} {...animatedItem[index]}>
-            <S.ItemImage image={item.image} />
-            <S.TextContainer>
-              <S.ItemTitle>{item.title}</S.ItemTitle>
-              <S.ItemLabel>{item.label}</S.ItemLabel>
-              <S.ItemDesciption>{item.description}</S.ItemDesciption>
-              <S.TextButton>Read more</S.TextButton>
-            </S.TextContainer>
-          </S.ListItem>
-        ))}
+        <S.Phone1 {...animatedItem[0]} />
+        <S.Phone2 {...animatedItem[1]} />
       </S.List>
       <Button fill="solid">앱 다운로드하기</Button>
     </S.Wrapper>
