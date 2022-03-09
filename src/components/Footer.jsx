@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Button from './Button';
 import TextField from './TextField';
-import { SnackContext } from '../pages/Home/Layout';
+import { SnackBarContext } from '../context';
 import { calendly, googleForm, appStore } from '../constant';
 
 const S = {
@@ -90,10 +90,10 @@ const S = {
 };
 
 const Footer = () => {
-  const { setVisible } = useContext(SnackContext);
+  const { setSnackbarMessage } = useContext(SnackBarContext);
   const onSubscribe = (e) => {
     e.preventDefault();
-    setVisible(true);
+    setSnackbarMessage('준비중입니다 😎');
   };
 
   return (

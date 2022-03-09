@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { useScroll } from '../hooks';
+
 const S = {
   Button: styled.button`
     z-index: 1000;
@@ -35,13 +37,14 @@ const S = {
   `,
 };
 
-export default function FloatingButton({ isScroll }) {
+export default function FloatingButton() {
+  const { scrollY } = useScroll();
   const scrollIntoTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <S.Button isScroll={isScroll} onClick={scrollIntoTop}>
+    <S.Button isScroll={scrollY} onClick={scrollIntoTop}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-6 w-6"

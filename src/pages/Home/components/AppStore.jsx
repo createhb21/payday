@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -11,6 +11,7 @@ import {
 } from '../../../assets';
 import { Button } from '../../../components';
 import { googleForm } from '../../../constant';
+import { SnackBarContext } from '../../../context';
 import {
   useScrollFadeIn,
   useScrollCount,
@@ -175,6 +176,11 @@ const AppStore = () => {
     e.preventDefault();
   };
 
+  const { setSnackbarMessage } = useContext(SnackBarContext);
+  const handleSnackBar = () => {
+    setSnackbarMessage('준비중입니다 😎');
+  };
+
   return (
     <S.Background>
       <S.Tilt>
@@ -224,7 +230,11 @@ const AppStore = () => {
           </S.Reviews>
           <S.Stores>
             {appItems.map((item) => (
-              <S.Store src={item.store} key={item.id} />
+              <S.Store
+                src={item.store}
+                key={item.id}
+                onClick={handleSnackBar}
+              />
             ))}
           </S.Stores>
         </S.Image>

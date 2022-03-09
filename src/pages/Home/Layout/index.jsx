@@ -1,30 +1,24 @@
-import React, { createContext, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 import { arrow } from '../../../assets';
-import { useScroll } from '../../../hooks';
-import { Header, Snackbar } from '../../../components';
-import { Footer } from '../../../components';
-import { FloatingButton } from '../../../components';
-
-export const SnackContext = createContext({
-  visible: false,
-});
+import { SnackBarContext } from '../../../context';
+import { useSnackBar } from '../../../hooks';
+import { Header, Footer, Snackbar, FloatingButton } from '../../../components';
 
 const Layout = (ctx) => {
-  const { scrollY } = useScroll();
-  const [visible, setVisible] = useState(true);
-  const value = useMemo(() => ({ setVisible }), [setVisible]);
+  const [snackbarMessage, setSnackbarMessage] = useSnackBar(1200);
+  const value = useMemo(() => ({ setSnackbarMessage }), [setSnackbarMessage]); // need to optimize this.
 
   return (
     <S.LayoutImpl>
       <Header />
-      <SnackContext.Provider value={value}>
-        <Snackbar visible={visible} />
+      <SnackBarContext.Provider value={value}>
         <S.ContentWrapper>{ctx.children}</S.ContentWrapper>
         <Footer />
-      </SnackContext.Provider>
-      <FloatingButton isScroll={scrollY} src={arrow} />
+      </SnackBarContext.Provider>
+      <FloatingButton src={arrow} />
+      {snackbarMessage && <Snackbar key={Math.random()} snackbarMessage />}
     </S.LayoutImpl>
   );
 };

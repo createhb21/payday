@@ -117,8 +117,8 @@ const Features = () => {
     2: useScrollFadeIn('up'),
   };
   const animatedImage = {
-    0: useScrollClipPath('up', 0.3),
-    1: useScrollClipPath('up', 0.5),
+    0: useScrollClipPath('up', 0.7),
+    1: useScrollClipPath('up', 0.9, 0.2),
   };
 
   return (

@@ -1,87 +1,79 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled, { css, keyframes } from 'styled-components';
 
 const popInFromBottom = keyframes`
   0% {
     opacity: 0;
-    transform: translateY(400px) scale(0.75);
+    transform: translateX(-100px) scale(0.75);
+  }
+  25% {
+    opacity: 0.9;
+    transform: translateX(0px) scale(1.0);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateX(0px) scale(1.0);
   }
   75% {
-    opacity: 1;
-    transform: translateY(-16px) scale(1.0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }`;
-
-const popOutToBottom = keyframes`
-  0% {
-    opacity: 1;
-    transform: translateY(0px) scale(1.0);
+    opacity: 0.9;
+    transform: translateX(0px) scale(1.0);
   }
   100% {
     opacity: 0;
-    transform: translateY(400px) scale(0.75);
+    transform: translateX(-100px) scale(0.75);
   }`;
 
 const S = {
   PopupBaseBlock: styled.div`
     position: fixed;
-    top: 0;
+    top: 0px;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 80px);
     z-index: 60;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: flex-start;
+  `,
+  SnackbarContainer: styled.div`
+    width: 13rem;
+    height: 2.5rem;
+    display: flex;
     justify-content: center;
-  `,
-  PopupWrapper: styled.div`
-    width: 25rem;
-    border-radius: 4px;
-    background: '#1E1E1E';
+    align-items: center;
     padding: 2rem 1.5rem;
+    margin-left: 2rem;
+    border-radius: 10px;
+    background: ${(props) => props.backgroundColor};
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.09);
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 400;
     ${(props) =>
-      props.visible
+      props.message
         ? css`
-            animation: ${popInFromBottom} 0.4s forwards ease-in-out;
+            animation: ${popInFromBottom} ${(props) => props.time} forwards
+              cubic-bezier(0, 0, 0.2, 1);
           `
-        : css`
-            animation: ${popOutToBottom} 0.2s forwards ease-in-out;
-          `}
+        : ''}
   `,
 };
 
-const Snackbar = ({ visible, children = '개발중 입니다 :)' }) => {
-  const [closed, setClosed] = useState(true);
-
-  useEffect(() => {
-    let timeoutId = null;
-    if (visible) {
-      setClosed(false);
-    } else {
-      timeoutId = setTimeout(() => {
-        setClosed(true);
-      }, 200);
-    }
-    return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-    };
-  }, [visible]);
-
-  if (!visible && closed) return null;
-
-  return (
-    <>
-      <S.PopupBaseBlock>
-        <S.PopupWrapper visible={visible}>{children}</S.PopupWrapper>
-      </S.PopupBaseBlock>
-    </>
-  );
-};
+const Snackbar = ({
+  message = '준비중입니다 😎',
+  ms = 1350,
+  backgroundColor = '#6E98FA',
+  snackbarMessage,
+}) => (
+  <S.PopupBaseBlock>
+    <S.SnackbarContainer
+      message={snackbarMessage}
+      backgroundColor={backgroundColor}
+      time={`${ms / 1000}s`}
+    >
+      {message}
+    </S.SnackbarContainer>
+  </S.PopupBaseBlock>
+);
 
 export default Snackbar;
