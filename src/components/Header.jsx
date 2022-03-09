@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { logo } from '../assets';
 import { calendly, googleForm } from '../constant';
-import NavItem from './NavItem';
+import { NavItem } from './';
 
 const S = {
   Wrapper: styled.div`

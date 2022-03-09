@@ -1,14 +1,14 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+import { logo } from '../../../assets';
 import { keywords } from '../../../constant';
-import { useScrollFadeIn } from '../../../hooks';
-import { useScrollTextIn } from '../../../hooks';
+import { useScrollTextIn, useScrollFadeIn } from '../../../hooks';
 
 const show = keyframes`
     from {
-      -webkit-text-stroke: 1px #91b1ff;
-      -webkit-text-fill-color: #ffffff;
+      -webkit-text-stroke: 1px ${(props) => props.theme.palette.lightPurple};
+      -webkit-text-fill-color: ${(props) => props.theme.palette.white};
     }
     to {
       -webkit-text-stroke: unset;
@@ -27,19 +27,6 @@ const S = {
     margin: auto;
     padding: 100px 0;
   `,
-  List: styled.ul`
-    display: flex;
-  `,
-  ListItem: styled.li`
-    width: 100%;
-    padding: 0 2rem;
-    text-align: center;
-    &:nth-child(2) {
-      border: 2px solid ${(props) => props.theme.palette.white};
-      border-top: none;
-      border-bottom: none;
-    }
-  `,
   Article: styled.div`
     padding-top: 5rem;
     display: flex;
@@ -51,8 +38,8 @@ const S = {
       font-weight: 900;
       font-size: 4.25rem;
       line-height: 1.2;
-      -webkit-text-stroke: 1px #91b1ff;
-      -webkit-text-fill-color: #ffffff;
+      -webkit-text-stroke: 1px ${(props) => props.theme.palette.lightPurle};
+      -webkit-text-fill-color: ${(props) => props.theme.palette.white};
     }
 
     .stairs.is-running {
@@ -60,30 +47,22 @@ const S = {
       /* -webkit-text-stroke: unset;
       -webkit-text-fill-color: #91b1ff; */
     }
-
-    span {
-      font-size: 3.5rem;
-      color: #2b51a9;
-    }
   `,
-  Number: styled.span`
+  LogoTicle: styled.div`
+    width: 750px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
+  Logo: styled.div`
+    width: 400px;
+    height: 4rem;
+    background: no-repeat center/cover url(${logo});
+  `,
+  LogoText: styled.p`
     ${(props) => props.theme.typography.subtitle};
-    color: ${(props) => props.theme.palette.secondary};
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  `,
-  Unit: styled.span`
-    ${(props) => props.theme.typography.subtitle};
-    color: ${(props) => props.theme.palette.secondary};
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  `,
-  Title: styled.h3`
-    ${(props) => props.theme.typography.subheading};
-    margin: 1rem 0;
-  `,
-  Description: styled.p`
-    ${(props) => props.theme.typography.description};
+    color: ${(props) => props.theme.palette.darkPurple};
   `,
 };
 
@@ -124,11 +103,14 @@ const Stairs = () => {
       <S.Wrapper>
         <S.Article>
           {keywords.map((item, index) => (
-            <p className="stairs" {...animatedItem[index]}>
-              {item}
+            <p key={item.id} className="stairs" {...animatedItem[index]}>
+              {item.text}
             </p>
           ))}
-          <span {...animationPayday}>PAYDAY에서 해결해 드립니다!</span>
+          <S.LogoTicle {...animationPayday}>
+            <S.Logo />
+            <S.LogoText>에서 해결해 드립니다!</S.LogoText>
+          </S.LogoTicle>
         </S.Article>
       </S.Wrapper>
     </S.Background>

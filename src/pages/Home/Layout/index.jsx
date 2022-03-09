@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { arrow } from '../../assets';
-import { useScroll } from '../../hooks';
-import { Header } from '../../components';
-import { Footer } from '../../components';
-import FloatingButton from '../../components/FloatingButton';
+import { arrow } from '../../../assets';
+import { useScroll } from '../../../hooks';
+import { Header } from '../../../components';
+import { Footer } from '../../../components';
+import { FloatingButton } from '../../../components';
 
 const Layout = (ctx) => {
   const { scrollY } = useScroll();

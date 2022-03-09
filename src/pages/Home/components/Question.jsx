@@ -14,7 +14,7 @@ const S = {
       ${({ theme }) => theme.palette.accent}
     );
   `,
-  Mountain: styled.div`
+  Tilt: styled.div`
     width: 100%;
     overflow: hidden;
     svg {
@@ -62,7 +62,7 @@ const Question = () => {
 
   return (
     <S.Wrapper>
-      <S.Mountain>
+      <S.Tilt>
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ const Question = () => {
             className="shape-fill"
           />
         </svg>
-      </S.Mountain>
+      </S.Tilt>
       <S.ContentBox {...aniumation}>
         <S.Title>
           내 월급,

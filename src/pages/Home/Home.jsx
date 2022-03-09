@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Layout from '../Layout';
+import Layout from './Layout';
 import {
   Intro,
   Question,
@@ -8,7 +8,7 @@ import {
   Stairs,
   Counselor,
   AppStore,
-  IsLack,
+  Meet,
 } from './components';
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
       <Stairs />
       <Counselor />
       <AppStore />
-      <IsLack />
+      <Meet />
     </Layout>
   );
 };

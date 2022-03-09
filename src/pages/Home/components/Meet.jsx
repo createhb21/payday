@@ -28,7 +28,7 @@ const S = {
   `,
 };
 
-const Banner = () => {
+const Meet = () => {
   const animatedItem = {
     0: useScrollFadeIn('up', 1, 0),
     1: useScrollFadeIn('up', 1, 0.2),
@@ -54,4 +54,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default Meet;

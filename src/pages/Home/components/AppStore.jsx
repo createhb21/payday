@@ -1,25 +1,56 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { contactImage } from '../../../assets';
+import {
+  review1,
+  review2,
+  review3,
+  logoFill,
+  appStore,
+  googlePlay,
+} from '../../../assets';
+import { Button } from '../../../components';
 import { googleForm } from '../../../constant';
-import { Button, TextField } from '../../../components';
-import { useScrollFadeIn, useScrollCount } from '../../../hooks';
+import {
+  useScrollFadeIn,
+  useScrollCount,
+  useScrollClipPath,
+} from '../../../hooks';
 
 const S = {
-  Wrapper: styled.section`
+  Background: styled.section`
     width: 100%;
-    width: 1180px;
+    position: relative;
+    background: linear-gradient(
+      to top,
+      ${({ theme }) => theme.palette.secondary},
+      ${({ theme }) => theme.palette.accent}
+    );
+  `,
+  Tilt: styled.article`
+    width: 100%;
+    overflow: hidden;
+    svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 247px;
+      transform: rotateY(180deg);
+    }
+    .shape-fill {
+      fill: #ffffff;
+    }
+  `,
+  Wrapper: styled.article`
+    width: 100%;
+    max-width: 1180px;
+    height: 1180px;
     margin: auto;
     padding: 120px 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-  `,
-  Image: styled.div`
-    width: 580px;
-    height: 580px;
-    background: no-repeat center/cover url(${contactImage});
+    align-items: center;
   `,
   TextWrapper: styled.div`
     box-sizing: border-box;
@@ -29,15 +60,24 @@ const S = {
     flex-direction: column;
     justify-content: center;
   `,
+  Logo: styled.div`
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    background: no-repeat center/cover url(${logoFill});
+    box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px, rgb(0 0 0 / 15%) 0px 8px 30px,
+      rgb(255 255 255 / 20%) 0px 0px 0px 1px inset;
+  `,
   Label: styled.p`
     display: inline-block;
     ${(props) => props.theme.typography.label};
-    color: ${(props) => props.theme.palette.primary};
+    color: ${(props) => props.theme.palette.white};
     margin-bottom: 1rem;
   `,
   Title: styled.h2`
     ${(props) => props.theme.typography.subtitle};
-    color: ${(props) => props.theme.palette.black};
+    color: ${(props) => props.theme.palette.white};
     margin-bottom: 1rem;
   `,
   Description: styled.p`
@@ -61,53 +101,135 @@ const S = {
       }
     }
   `,
+  Image: styled.div`
+    width: 580px;
+    height: 580px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `,
+  Reviews: styled.div`
+    flex: 1 1 80%;
+    width: 150%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  `,
+  Review: styled.div`
+    width: 100%;
+    height: 250px;
+    background: no-repeat center/cover url(${(props) => props.image});
+
+    &:nth-child(2) {
+      transform: translateY(-97px);
+    }
+    &:nth-last-child(1) {
+      transform: translateY(-217px);
+    }
+  `,
+  Stores: styled.span`
+    flex: 1 1 20%;
+    width: 100%;
+    max-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
+  Store: styled.img.attrs({
+    alt: 'store',
+  })`
+    width: 300px;
+    height: 300px;
+    transform: translateY(-277px);
+
+    &:nth-of-type(2) {
+      transform: translateX(-50px) translateY(-277px);
+    }
+
+    cursor: pointer;
+  `,
 };
 
 const AppStore = () => {
+  const reviewItems = [
+    { id: 0, review: review1 },
+    { id: 1, review: review2 },
+    { id: 2, review: review3 },
+  ];
+  const appItems = [
+    { id: 0, store: appStore },
+    { id: 1, store: googlePlay },
+  ];
+
   const animatedItem = {
     0: useScrollFadeIn('up', 1, 0),
     1: useScrollFadeIn('up', 1, 0.2),
     2: useScrollFadeIn('up', 1, 0.3),
-    3: useScrollFadeIn('up', 1, 0.4),
+    3: useScrollCount(4.9, 0, true, 150),
+    4: useScrollFadeIn('up', 1, 0.4),
+    5: useScrollClipPath('right'),
   };
-
-  const countItem = useScrollCount(4.9, 0, true, 150);
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   return (
-    <S.Wrapper>
-      <S.TextWrapper>
-        <S.Label {...animatedItem[0]}>Get Started</S.Label>
-        <S.Title {...animatedItem[1]}>
-          똑똑한 재테크를 위한
-          <br />
-          필수 월급 관리 어플
-          <br />
-          페이데이
-        </S.Title>
-        <S.Description {...animatedItem[2]}>
-          <span role="img" aria-label="sheep">
-            ⭐️⭐️⭐️⭐️⭐️{' '}
-          </span>
-          <br />
-          App store 별점 <span {...countItem}>0</span>
-        </S.Description>
-        <S.Form {...animatedItem[3]} onSubmit={handleSubmit}>
-          <TextField type="text" placeholder="Name" readOnly />
-          <TextField type="text" placeholder="Work Email Address" readOnly />
-          <TextField type="text" placeholder="Company Name" readOnly />
-          <Button fill="solid" type="submit">
-            <a target="_blank" href={googleForm} rel="noopener noreferrer">
-              Become a partner
-            </a>
-          </Button>
-        </S.Form>
-      </S.TextWrapper>
-      <S.Image image={contactImage} />
-    </S.Wrapper>
+    <S.Background>
+      <S.Tilt>
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M1200 120L0 16.48 0 0 1200 0 1200 120z"
+            className="shape-fill"
+          />
+        </svg>
+      </S.Tilt>
+      <S.Wrapper>
+        <S.TextWrapper>
+          <S.Logo />
+          <S.Label {...animatedItem[0]}>Get Started</S.Label>
+          <S.Title {...animatedItem[1]}>
+            똑똑한 재테크를 위한
+            <br />
+            필수 월급 관리 어플
+            <br />
+            <p style={{ fontWeight: '900' }}>페이데이</p>
+          </S.Title>
+          <S.Description {...animatedItem[2]}>
+            <span role="img" aria-label="sheep">
+              ⭐️⭐️⭐️⭐️⭐️{' '}
+            </span>
+            <br />
+            App store 별점 <span {...animatedItem[3]}>0</span>
+          </S.Description>
+          <S.Form {...animatedItem[4]} onSubmit={handleSubmit}>
+            <Button fill="solid" type="submit">
+              <a target="_blank" href={googleForm} rel="noopener noreferrer">
+                Become a partner
+              </a>
+            </Button>
+          </S.Form>
+        </S.TextWrapper>
+        <S.Image {...animatedItem[5]}>
+          <S.Reviews>
+            {reviewItems.map((item) => (
+              <S.Review image={item.review} key={item.id} />
+            ))}
+          </S.Reviews>
+          <S.Stores>
+            {appItems.map((item) => (
+              <S.Store src={item.store} key={item.id} />
+            ))}
+          </S.Stores>
+        </S.Image>
+      </S.Wrapper>
+    </S.Background>
   );
 };
 

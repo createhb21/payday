@@ -3,6 +3,7 @@ const theme = {
     primary: '#6E98FA',
     secondary: '#C9E0FE',
     accent: '#507AE1',
+    lightPurple: '#91b1ff',
     darkPurple: '#4a6eba',
     background: '#f8f5f2',
     white: '#ffffff',
