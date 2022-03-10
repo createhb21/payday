@@ -4,7 +4,13 @@ import styled from 'styled-components';
 import Button from './Button';
 import TextField from './TextField';
 import { SnackBarContext } from '../context';
-import { calendly, googleForm, appStore } from '../constant';
+import {
+  calendly,
+  googleForm,
+  appStoreLink,
+  aboutUs,
+  FrequentlyAsk,
+} from '../constant';
 
 const S = {
   Wrapper: styled.footer`
@@ -91,7 +97,7 @@ const S = {
 
 const Footer = () => {
   const { setSnackbarMessage } = useContext(SnackBarContext);
-  const onSubscribe = (e) => {
+  const handleSnackBar = (e) => {
     e.preventDefault();
     setSnackbarMessage('준비중입니다 😎');
   };
@@ -114,19 +120,31 @@ const Footer = () => {
         <S.MenuItem target="_blank" href={googleForm} rel="noopener noreferrer">
           For CPLA
         </S.MenuItem>
-        <S.MenuItem>Serivces</S.MenuItem>
+        <S.MenuItem target="_blank" href={aboutUs} rel="noopener noreferrer">
+          About us
+        </S.MenuItem>
       </S.Menu>
       <S.Menu>
         <S.MenuTitle>Services</S.MenuTitle>
-        <S.MenuItem target="_blank" href={appStore} rel="noopener noreferrer">
+        <S.MenuItem
+          target="_blank"
+          href={appStoreLink}
+          rel="noopener noreferrer"
+        >
           App Store
         </S.MenuItem>
-        <S.MenuItem>Google Play</S.MenuItem>
-        <S.MenuItem>Frequently Ask</S.MenuItem>
+        <S.MenuItem onClick={handleSnackBar}>Google Play</S.MenuItem>
+        <S.MenuItem
+          target="_blank"
+          href={FrequentlyAsk}
+          rel="noopener noreferrer"
+        >
+          Frequently Ask
+        </S.MenuItem>
       </S.Menu>
       <S.Subscribe>
         <S.MenuTitle>Subscribe</S.MenuTitle>
-        <S.Form onSubmit={onSubscribe}>
+        <S.Form onSubmit={handleSnackBar}>
           <TextField type="text" placeholder="Enter Your Email" />
           <Button fill="solid" type="submit">
             Subscribe

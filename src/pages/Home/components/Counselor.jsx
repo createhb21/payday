@@ -1,11 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { counselorPhone1, counselorPhone2 } from '../../../assets';
+
+import {
+  counselorChat,
+  counselorPhone1,
+  counselorPhone2,
+} from '../../../assets';
 import { Button } from '../../../components';
+import { appStoreLink } from '../../../constant';
 import { useScrollFadeIn } from '../../../hooks';
 
 const S = {
-  Wrapper: styled.div`
+  Wrapper: styled.section`
     width: 100%;
     max-width: 1180px;
     margin: auto;
@@ -16,9 +22,19 @@ const S = {
     & > button {
       border: 1px solid ${(props) => props.theme.palette.primary};
       transition: all 0.2s ease-in-out;
+      a {
+        transition: all 0.2s ease-in-out;
+        text-decoration: none;
+        color: ${(props) => props.theme.palette.white};
+      }
       &:hover {
+        transform: scale(1.01);
         background: transparent;
-        color: ${(props) => props.theme.palette.black};
+        a {
+          opacity: 0.7;
+          font-weight: bold;
+          color: ${(props) => props.theme.palette.black};
+        }
       }
     }
   `,
@@ -65,12 +81,21 @@ const S = {
     right: -160px;
     background: no-repeat center/cover url(${counselorPhone2});
   `,
+  Chat: styled.div`
+    width: 110%;
+    height: 550px;
+    position: absolute;
+    top: 70px;
+    left: -40px;
+    background: no-repeat center/cover url(${counselorChat});
+  `,
 };
 
 const Counselor = () => {
   const animatedItem = {
     0: useScrollFadeIn('left', 1),
     1: useScrollFadeIn('left', 1, 0.2),
+    2: useScrollFadeIn('up', 1),
   };
 
   return (
@@ -88,8 +113,13 @@ const Counselor = () => {
       <S.List>
         <S.Phone1 {...animatedItem[0]} />
         <S.Phone2 {...animatedItem[1]} />
+        <S.Chat {...animatedItem[2]} />
       </S.List>
-      <Button fill="solid">앱 다운로드하기</Button>
+      <Button fill="solid">
+        <a target="_blank" href={appStoreLink} rel="noopener noreferrer">
+          앱 다운로드하기
+        </a>
+      </Button>
     </S.Wrapper>
   );
 };

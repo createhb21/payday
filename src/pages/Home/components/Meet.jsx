@@ -26,6 +26,26 @@ const S = {
     margin-bottom: 2rem;
     text-align: center;
   `,
+  ButtonCover: styled.div`
+    button {
+      border: 1px solid ${(props) => props.theme.palette.primary};
+      transition: all 0.2s ease-in-out;
+      a {
+        transition: all 0.2s ease-in-out;
+        text-decoration: none;
+        color: ${(props) => props.theme.palette.white};
+      }
+      &:hover {
+        transform: scale(1.01);
+        background: transparent;
+        a {
+          opacity: 0.7;
+          font-weight: bold;
+          color: ${(props) => props.theme.palette.black};
+        }
+      }
+    }
+  `,
 };
 
 const Meet = () => {
@@ -43,13 +63,13 @@ const Meet = () => {
         <br />
         저희와 상담해보세요!
       </S.Title>
-      <div {...animatedItem[2]}>
-        <a target="_blank" href={calendly} rel="noopener noreferrer">
-          <Button fill="solid" type="button">
+      <S.ButtonCover {...animatedItem[2]}>
+        <Button fill="solid" type="button">
+          <a target="_blank" href={calendly} rel="noopener noreferrer">
             Get a Meet
-          </Button>
-        </a>
-      </div>
+          </a>
+        </Button>
+      </S.ButtonCover>
     </S.Wrapper>
   );
 };

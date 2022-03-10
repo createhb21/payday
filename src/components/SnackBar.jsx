@@ -45,7 +45,8 @@ const S = {
     margin-left: 2rem;
     border-radius: 10px;
     background: ${(props) => props.backgroundColor};
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.09);
+    box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px, rgb(0 0 0 / 15%) 0px 8px 30px,
+      rgb(255 255 255 / 20%) 0px 0px 0px 1px inset;
     color: white;
     font-size: 1.3rem;
     font-weight: 400;
@@ -63,11 +64,10 @@ const Snackbar = ({
   message = '준비중입니다 😎',
   ms = 1350,
   backgroundColor = '#6E98FA',
-  snackbarMessage,
 }) => (
   <S.PopupBaseBlock>
     <S.SnackbarContainer
-      message={snackbarMessage}
+      message
       backgroundColor={backgroundColor}
       time={`${ms / 1000}s`}
     >

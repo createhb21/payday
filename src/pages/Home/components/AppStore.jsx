@@ -10,7 +10,7 @@ import {
   googlePlay,
 } from '../../../assets';
 import { Button } from '../../../components';
-import { googleForm } from '../../../constant';
+import { googleForm, appStoreLink } from '../../../constant';
 import { SnackBarContext } from '../../../context';
 import {
   useScrollFadeIn,
@@ -85,6 +85,10 @@ const S = {
     ${(props) => props.theme.typography.description};
     color: ${(props) => props.theme.palette.white};
     margin-bottom: 2rem;
+
+    span:last-child {
+      font-weight: 900;
+    }
   `,
   Form: styled.form`
     display: flex;
@@ -95,10 +99,19 @@ const S = {
     }
     button {
       width: 70%;
-
+      transition: all 0.2s ease-in-out;
       a {
+        transition: all 0.2s ease-in-out;
         text-decoration: none;
         color: ${(props) => props.theme.palette.white};
+      }
+      &:hover {
+        transform: scale(1.01);
+        a {
+          opacity: 0.7;
+          font-weight: bold;
+          color: ${(props) => props.theme.palette.black};
+        }
       }
     }
   `,
@@ -136,16 +149,16 @@ const S = {
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translateY(-277px);
   `,
   Store: styled.img.attrs({
     alt: 'store',
   })`
-    width: 300px;
-    height: 300px;
-    transform: translateY(-277px);
+    width: 270px;
+    height: 270px;
 
     &:nth-of-type(2) {
-      transform: translateX(-50px) translateY(-277px);
+      transform: translateX(-50px);
     }
 
     cursor: pointer;
@@ -169,16 +182,16 @@ const AppStore = () => {
     2: useScrollFadeIn('up', 1, 0.3),
     3: useScrollCount(4.9, 0, true, 150),
     4: useScrollFadeIn('up', 1, 0.4),
-    5: useScrollClipPath('right'),
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    5: useScrollClipPath('up'),
   };
 
   const { setSnackbarMessage } = useContext(SnackBarContext);
-  const handleSnackBar = () => {
-    setSnackbarMessage('준비중입니다 😎');
+  const handleSnackBar = (id) => {
+    if (id > 0) {
+      setSnackbarMessage('준비중입니다 😎');
+    } else {
+      window.open(appStoreLink, '_blank');
+    }
   };
 
   return (
@@ -214,7 +227,7 @@ const AppStore = () => {
             <br />
             App store 별점 <span {...animatedItem[3]}>0</span>
           </S.Description>
-          <S.Form {...animatedItem[4]} onSubmit={handleSubmit}>
+          <S.Form {...animatedItem[4]} onSubmit={(e) => e.preventDefault()}>
             <Button fill="solid" type="submit">
               <a target="_blank" href={googleForm} rel="noopener noreferrer">
                 Become a partner
@@ -233,7 +246,7 @@ const AppStore = () => {
               <S.Store
                 src={item.store}
                 key={item.id}
-                onClick={handleSnackBar}
+                onClick={() => handleSnackBar(item.id)}
               />
             ))}
           </S.Stores>

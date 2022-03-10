@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 import { arrow } from '../../../assets';
-import { SnackBarContext } from '../../../context';
 import { useSnackBar } from '../../../hooks';
+import { SnackBarContext } from '../../../context';
 import { Header, Footer, Snackbar, FloatingButton } from '../../../components';
 
 const Layout = (ctx) => {
@@ -12,13 +12,13 @@ const Layout = (ctx) => {
 
   return (
     <S.LayoutImpl>
-      <Header />
       <SnackBarContext.Provider value={value}>
+        <Header />
         <S.ContentWrapper>{ctx.children}</S.ContentWrapper>
         <Footer />
       </SnackBarContext.Provider>
       <FloatingButton src={arrow} />
-      {snackbarMessage && <Snackbar key={Math.random()} snackbarMessage />}
+      {snackbarMessage && <Snackbar key={Math.random()} />}
     </S.LayoutImpl>
   );
 };
@@ -35,5 +35,10 @@ const S = {
     height: calc(100% - 70px);
     display: grid;
     grid-auto-rows: minmax(720px, auto);
+    gap: 5rem;
+
+    & > section:last-child {
+      transform: translateY(-5rem);
+    }
   `,
 };

@@ -19,7 +19,6 @@ const show = keyframes`
 const S = {
   Background: styled.section`
     width: 100%;
-    /* background-color: ${(props) => props.theme.palette.background}; */
   `,
   Wrapper: styled.div`
     width: 100%;
@@ -67,23 +66,6 @@ const S = {
 };
 
 const Stairs = () => {
-  // const animatedItem = {
-  //   0: useScrollTextIn('down', 2),
-  //   1: useScrollTextIn('down', 2),
-  //   2: useScrollTextIn('down', 2),
-  //   3: useScrollTextIn('down', 2),
-  //   4: useScrollTextIn('down', 2),
-  //   5: useScrollTextIn('down', 2),
-  //   6: useScrollTextIn('down', 2),
-  //   7: useScrollTextIn('down', 2),
-  //   8: useScrollTextIn('down', 2),
-  //   9: useScrollFadeIn('down', 2, 0.9),
-  // };
-
-  // const animatedItem = Array(keywords.length).fill(
-  //   useScrollTextIn('right', 1.5),
-  // );   // How to iterate ???
-
   const animatedItem = {
     0: useScrollTextIn('right', 1.5),
     1: useScrollTextIn('right', 1.5),
@@ -96,7 +78,7 @@ const Stairs = () => {
     8: useScrollTextIn('right', 1.5),
   };
 
-  const animationPayday = useScrollFadeIn('down', 2, 0.5);
+  const animationPayday = useScrollFadeIn('down', 2, 0.4);
 
   return (
     <S.Background>
