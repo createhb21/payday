@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+
+import { media } from '../../../styles';
 import {
   featurePhone,
   featurePhone2,
@@ -11,6 +13,10 @@ import { useScrollFadeIn, useScrollClipPath } from '../../../hooks';
 
 const S = {
   Wrapper: styled.section`
+    ${media.small} {
+      max-width: 100%;
+      flex-direction: column;
+    }
     width: 100%;
     max-width: 1180px;
     margin: auto;
@@ -52,7 +58,10 @@ const S = {
       color: ${(props) => props.theme.palette.darkPurple};
     }
   `,
-  Image: styled.div`
+  Blob: styled.div`
+  4{media.small} {
+    margin-top: 8rem;
+  }
     width: 580px;
     height: 580px;
     background: ${(props) => props.theme.palette.secondary};
@@ -136,13 +145,13 @@ const Features = () => {
           ))}
         </S.List>
       </S.TextWrapper>
-      <S.Image>
+      <S.Blob>
         <S.BankBook {...animatedTwinkle[0]} />
         <S.Twinkle1 {...animatedTwinkle[1]} />
         <S.Twinkle2 {...animatedTwinkle[2]} />
         <S.Phone1 {...animatedImage[0]} />
         <S.Phone2 {...animatedImage[1]} />
-      </S.Image>
+      </S.Blob>
     </S.Wrapper>
   );
 };

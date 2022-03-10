@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { media } from '../styles';
 import { useScroll } from '../hooks';
 
 const S = {
   Button: styled.button`
+    ${media.small} {
+      display: none;
+    }
     z-index: 1000;
 
     position: fixed;

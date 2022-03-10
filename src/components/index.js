@@ -5,3 +5,4 @@ export { default as NavItem } from './NavItem';
 export { default as Snackbar } from './SnackBar';
 export { default as TextField } from './TextField';
 export { default as FloatingButton } from './FloatingButton';
+export { default as MobileHeader } from './MobileHeader';

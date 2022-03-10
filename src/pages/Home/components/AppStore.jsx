@@ -9,9 +9,10 @@ import {
   appStore,
   googlePlay,
 } from '../../../assets';
+import { media } from '../../../styles';
 import { Button } from '../../../components';
-import { googleForm, appStoreLink } from '../../../constant';
 import { SnackBarContext } from '../../../context';
+import { googleForm, appStoreLink } from '../../../constant';
 import {
   useScrollFadeIn,
   useScrollCount,
@@ -43,6 +44,12 @@ const S = {
     }
   `,
   Wrapper: styled.article`
+    ${media.small} {
+      max-width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      flex-direction: column;
+    }
     width: 100%;
     max-width: 1180px;
     height: 950px;

@@ -1,10 +1,17 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
+import { media } from '../../../styles';
 import { arrow } from '../../../assets';
 import { useSnackBar } from '../../../hooks';
 import { SnackBarContext } from '../../../context';
-import { Header, Footer, Snackbar, FloatingButton } from '../../../components';
+import {
+  Header,
+  Footer,
+  Snackbar,
+  FloatingButton,
+  MobileHeader,
+} from '../../../components';
 
 const Layout = (ctx) => {
   const [snackbarMessage, setSnackbarMessage] = useSnackBar(1200);
@@ -13,6 +20,7 @@ const Layout = (ctx) => {
   return (
     <S.LayoutImpl>
       <SnackBarContext.Provider value={value}>
+        <MobileHeader />
         <Header />
         <S.ContentWrapper>{ctx.children}</S.ContentWrapper>
         <Footer />
@@ -31,6 +39,11 @@ const S = {
     height: 100%;
   `,
   ContentWrapper: styled.main`
+    ${media.small} {
+      max-width: 100%;
+      gap: 7rem;
+      overflow: hidden;
+    }
     width: 100%;
     height: calc(100% - 70px);
     display: grid;

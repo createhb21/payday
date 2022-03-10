@@ -6,12 +6,18 @@ import {
   counselorPhone1,
   counselorPhone2,
 } from '../../../assets';
+import { media } from '../../../styles';
 import { Button } from '../../../components';
 import { appStoreLink } from '../../../constant';
 import { useScrollFadeIn } from '../../../hooks';
 
 const S = {
   Wrapper: styled.section`
+    ${media.small} {
+      max-width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
     width: 100%;
     max-width: 1180px;
     margin: auto;

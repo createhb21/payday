@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Button from './Button';
 import TextField from './TextField';
+import { media } from '../styles';
 import { SnackBarContext } from '../context';
 import {
   calendly,
@@ -14,10 +15,14 @@ import {
 
 const S = {
   Wrapper: styled.footer`
+    ${media.small} {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(50%, auto));
+    }
     width: 100%;
     max-width: 1180px;
     margin: auto;
-    padding: 120px 0 30px;
+    padding: 120px 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

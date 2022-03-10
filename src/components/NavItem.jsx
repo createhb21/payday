@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+import { media } from '../styles';
+
 const smooth = keyframes`
     0% {
         top: 90%;
@@ -18,6 +20,13 @@ const smooth = keyframes`
 
 const S = {
   NavigationItem: styled.li`
+    ${media.small} {
+      a {
+        font-size: 1rem;
+        font-weight: normal;
+        color: ${(props) => props.theme.palette.black};
+      }
+    }
     margin: 10px;
     width: 120px;
     height: 50px;
@@ -33,7 +42,6 @@ const S = {
     overflow: hidden;
     position: relative;
     transition: 0.275s ease-in-out;
-
     cursor: pointer;
 
     &:before {

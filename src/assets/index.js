@@ -12,6 +12,7 @@ export { default as twinkle2 } from './twinkle-02.svg';
 export { default as introChat } from './intro-chat.png';
 export { default as introPhone } from './intro-phone.png';
 export { default as googlePlay } from './google-play.png';
+export { default as mobileLogo } from './mobile-logo.svg';
 export { default as counselorChat } from './counselor-chat.png';
 export { default as featurePhone } from './feature-phone-01.png';
 export { default as featurePhone2 } from './feature-phone-02.png';

@@ -1,17 +1,18 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
 
-import { logo } from '../assets';
-import { calendly, googleForm } from '../constant';
 import { NavItem } from './';
 import { media } from '../styles';
+import { mobileLogo } from '../assets';
+import { calendly, googleForm } from '../constant';
 
 const S = {
   Wrapper: styled.div`
+    display: none;
     ${media.small} {
-      display: none;
+      display: block;
     }
-    width: 100%;
+    min-width: 100%;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -24,28 +25,18 @@ const S = {
   `,
   Header: styled.header`
     width: 100%;
-    max-width: 1180px;
-    margin: auto;
-    transition: all 0.2s ease-in-out;
-    height: ${(props) => (props.isScroll ? '70px' : '100px')};
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     overflow: hidden;
   `,
-  Logo: styled.img.attrs({
-    src: `${logo}`,
-  })`
-    width: 180px;
-    height: 100px;
-    max-width: 25%;
-    object-fit: cover;
-    cursor: pointer;
-  `,
   Navigation: styled.ul`
-    max-width: 50%;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+  `,
+  Logo: styled.img.attrs({
+    src: `${mobileLogo}`,
+  })`
+    width: 60px;
+    cursor: pointer;
   `,
 };
 
@@ -71,9 +62,9 @@ const Header = () => {
   return (
     <S.Wrapper isScroll={isScroll}>
       <S.Header isScroll={isScroll}>
-        <S.Logo isScroll={isScroll} />
         <S.Navigation>
           <NavItem text="Contact us" to={calendly} isScroll={isScroll} />
+          <S.Logo src={mobileLogo} isScroll={isScroll} />
           <NavItem text="for CPLA" to={googleForm} isScroll={isScroll} />
         </S.Navigation>
       </S.Header>

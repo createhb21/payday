@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
-import { logo, introChat, introPhone } from '../../../assets';
+import { media } from '../../../styles';
 import { useScrollFadeIn } from '../../../hooks';
+import { logo, introChat, introPhone } from '../../../assets';
 
 const S = {
   Wrapper: styled.section`
+    ${media.small} {
+      max-width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      flex-direction: column;
+    }
     width: 100%;
     max-width: 1180px;
     margin: auto;
@@ -22,17 +29,29 @@ const S = {
     padding-top: 5rem;
   `,
   Title: styled.h1`
+    ${media.small} {
+      font-size: 1.3rem;
+    }
     ${(props) => props.theme.typography.heading};
     color: ${(props) => props.theme.palette.lightBlack};
     margin-bottom: 0.5rem;
   `,
   Logo: styled.div`
+    ${media.small} {
+      width: 290px;
+      height: 80px;
+    }
     width: 390px;
     height: 100px;
     background: no-repeat center/cover url(${logo});
     margin: -15px -22px;
   `,
-  Image: styled.div`
+  Blob: styled.div`
+    ${media.small} {
+      width: 450px;
+      height: 450px;
+      margin-top: 8rem;
+    }
     width: 580px;
     height: 580px;
     background: #c9e0fe;
@@ -40,6 +59,9 @@ const S = {
     position: relative;
   `,
   Description: styled.p`
+    ${media.small} {
+      font-size: 1.2rem;
+    }
     position: absolute;
     top: 50px;
     right: 100px;
@@ -48,6 +70,12 @@ const S = {
     text-align: right;
   `,
   Chat: styled.div`
+    ${media.small} {
+      width: 240px;
+      height: 350px;
+      bottom: 15px;
+      left: -10px;
+    }
     width: 279px;
     height: 550px;
     position: absolute;
@@ -56,6 +84,12 @@ const S = {
     background: no-repeat center/cover url(${introChat});
   `,
   Phone: styled.div`
+    ${media.small} {
+      width: 100%;
+      height: 350px;
+      bottom: 17px;
+      left: 65px;
+    }
     width: 100%;
     height: 550px;
     position: absolute;
@@ -109,7 +143,7 @@ const Intro = () => {
         </S.Title>
         <S.Logo {...animatedItem[1]} />
       </S.TextWrapper>
-      <S.Image>
+      <S.Blob>
         <S.Description {...animatedItem[2]}>
           당연한 권리를 찾으세요!
           <br />
@@ -117,7 +151,7 @@ const Intro = () => {
         </S.Description>
         <S.Chat className="intro" />
         <S.Phone className="intro" />
-      </S.Image>
+      </S.Blob>
     </S.Wrapper>
   );
 };

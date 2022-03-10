@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { media } from '../../../styles';
 import { Button } from '../../../components';
 import { calendly } from '../../../constant';
 import { useScrollFadeIn } from '../../../hooks';
 
 const S = {
   Wrapper: styled.section`
+    ${media.small} {
+      max-width: 100%;
+    }
     width: 100%;
     padding: 120px 0;
     background-color: ${(props) => props.theme.palette.background};

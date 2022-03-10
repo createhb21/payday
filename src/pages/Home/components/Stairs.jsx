@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import { logo } from '../../../assets';
+import { media } from '../../../styles';
 import { keywords } from '../../../constant';
 import { useScrollTextIn, useScrollFadeIn } from '../../../hooks';
 
@@ -21,6 +22,11 @@ const S = {
     width: 100%;
   `,
   Wrapper: styled.div`
+    ${media.small} {
+      max-width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
     width: 100%;
     max-width: 1180px;
     margin: auto;

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { media } from '../../../styles';
 import { customer } from '../../../assets';
 import { useScrollFadeIn } from '../../../hooks';
 
@@ -18,6 +19,10 @@ const S = {
     width: 100%;
     overflow: hidden;
     svg {
+      ${media.small} {
+        width: 100%;
+        height: 317px;
+      }
       position: relative;
       display: block;
       width: calc(100% + 1.3px);
@@ -29,6 +34,9 @@ const S = {
     }
   `,
   ContentBox: styled.div`
+    ${media.small} {
+      max-width: 100%;
+    }
     width: 100%;
     max-width: 1180px;
     margin: auto;
@@ -48,6 +56,10 @@ const S = {
     width: 100%;
   `,
   ImageBox: styled.div`
+    ${media.small} {
+      width: 250px;
+      height: 280px;
+    }
     width: 350px;
     height: 400px;
     margin: 0 auto;

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, { css, keyframes } from 'styled-components';
 
+import { media } from '../styles';
+
 const popInFromBottom = keyframes`
   0% {
     opacity: 0;
@@ -36,6 +38,11 @@ const S = {
     justify-content: flex-start;
   `,
   SnackbarContainer: styled.div`
+    ${media.small} {
+      width: 10rem;
+      height: 1.2rem;
+      font-size: 1rem;
+    }
     width: 13rem;
     height: 2.5rem;
     display: flex;
