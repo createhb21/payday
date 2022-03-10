@@ -46,13 +46,14 @@ const S = {
   Wrapper: styled.article`
     ${media.small} {
       max-width: 100%;
+      /* height: 1180px; */
       padding-left: 20px;
       padding-right: 20px;
       flex-direction: column;
     }
     width: 100%;
     max-width: 1180px;
-    height: 950px;
+    /* height: 950px; */
     margin: auto;
     padding: 120px 0;
     display: flex;
@@ -138,6 +139,9 @@ const S = {
     align-items: center;
   `,
   Review: styled.div`
+    ${media.small} {
+      width: 90%;
+    }
     width: 100%;
     height: 250px;
     background: no-repeat center/cover url(${(props) => props.image});

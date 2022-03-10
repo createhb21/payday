@@ -9,8 +9,7 @@ const S = {
   Wrapper: styled.section`
     ${media.small} {
       max-width: 100%;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding: 60px 20px;
       flex-direction: column;
     }
     width: 100%;
@@ -22,6 +21,9 @@ const S = {
     justify-content: space-between;
   `,
   TextWrapper: styled.div`
+    ${media.small} {
+      width: 50%;
+    }
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -46,11 +48,18 @@ const S = {
     background: no-repeat center/cover url(${logo});
     margin: -15px -22px;
   `,
+  BlobCover: styled.div`
+    ${media.small} {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 8rem;
+      transform: translateX(-50px);
+    }
+  `,
   Blob: styled.div`
     ${media.small} {
-      width: 450px;
-      height: 450px;
-      margin-top: 8rem;
+      width: 500px;
+      height: 500px;
     }
     width: 580px;
     height: 580px;
@@ -60,11 +69,14 @@ const S = {
   `,
   Description: styled.p`
     ${media.small} {
+      width: 350px;
       font-size: 1.2rem;
+      top: 40px;
+      right: 190px;
     }
     position: absolute;
     top: 50px;
-    right: 100px;
+    right: 130px;
     ${(props) => props.theme.typography.subheading};
     color: ${(props) => props.theme.palette.darkPurple};
     text-align: right;
@@ -73,8 +85,8 @@ const S = {
     ${media.small} {
       width: 240px;
       height: 350px;
-      bottom: 15px;
-      left: -10px;
+      bottom: 55px;
+      left: -50px;
     }
     width: 279px;
     height: 550px;
@@ -87,8 +99,8 @@ const S = {
     ${media.small} {
       width: 100%;
       height: 350px;
-      bottom: 17px;
-      left: 65px;
+      bottom: 57px;
+      left: -2px;
     }
     width: 100%;
     height: 550px;
@@ -143,15 +155,17 @@ const Intro = () => {
         </S.Title>
         <S.Logo {...animatedItem[1]} />
       </S.TextWrapper>
-      <S.Blob>
-        <S.Description {...animatedItem[2]}>
-          당연한 권리를 찾으세요!
-          <br />
-          법적 임금 계산 & 공인노무사 중개 플랫폼
-        </S.Description>
-        <S.Chat className="intro" />
-        <S.Phone className="intro" />
-      </S.Blob>
+      <S.BlobCover>
+        <S.Blob>
+          <S.Description {...animatedItem[2]}>
+            당연한 권리를 찾으세요!
+            <br />
+            법적 임금 계산 & 공인노무사 중개 플랫폼
+          </S.Description>
+          <S.Chat className="intro" />
+          <S.Phone className="intro" />
+        </S.Blob>
+      </S.BlobCover>
     </S.Wrapper>
   );
 };

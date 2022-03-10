@@ -22,11 +22,12 @@ const S = {
   NavigationItem: styled.li`
     ${media.small} {
       a {
-        font-size: 1rem;
-        font-weight: normal;
-        color: ${(props) => props.theme.palette.black};
+        font-size: 1rem !important;
+        font-weight: normal !important;
+        color: ${(props) => props.theme.palette.black} !important;
       }
     }
+
     margin: 10px;
     width: 120px;
     height: 50px;
@@ -35,7 +36,6 @@ const S = {
     justify-content: center;
     align-items: center;
 
-    font-weight: bold;
     padding: 6px 15px;
 
     border-radius: 20px;
@@ -44,36 +44,39 @@ const S = {
     transition: 0.275s ease-in-out;
     cursor: pointer;
 
-    &:before {
-      content: '';
-      width: 175%;
-      height: 175%;
-      transform: rotate(45deg);
-      background: ${(props) => props.theme.palette.secondary};
-      top: 90%;
-      left: -110%;
-      position: absolute;
-    }
-
     a {
       color: ${(props) => props.theme.palette.gray};
+      font-weight: bold;
       font-size: 1.12rem;
       position: absolute;
       list-style: none;
       text-decoration: none;
     }
 
-    &:hover a {
-      transform: scale(1.05);
-      transition: 0.2s linear;
-      color: ${(props) => props.theme.palette.black};
-    }
-
-    &:hover {
+    @media (min-width: 1024px) {
       &:before {
-        top: -10%;
-        left: -10%;
-        animation: ${smooth} 0.9s;
+        content: '';
+        width: 175%;
+        height: 175%;
+        transform: rotate(45deg);
+        background: ${(props) => props.theme.palette.secondary};
+        top: 90%;
+        left: -110%;
+        position: absolute;
+      }
+
+      &:hover a {
+        transform: scale(1.05);
+        transition: 0.2s linear;
+        color: ${(props) => props.theme.palette.black};
+      }
+
+      &:hover {
+        &:before {
+          top: -10%;
+          left: -10%;
+          animation: ${smooth} 0.9s;
+        }
       }
     }
   `,

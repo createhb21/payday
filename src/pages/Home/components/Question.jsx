@@ -7,7 +7,7 @@ import { useScrollFadeIn } from '../../../hooks';
 
 const S = {
   Wrapper: styled.section`
-    width: 100%;
+    width: 100vw;
     position: relative;
     background: linear-gradient(
       to top,
@@ -21,7 +21,6 @@ const S = {
     svg {
       ${media.small} {
         width: 100%;
-        height: 317px;
       }
       position: relative;
       display: block;
@@ -35,7 +34,8 @@ const S = {
   `,
   ContentBox: styled.div`
     ${media.small} {
-      max-width: 100%;
+      max-width: 100vw;
+      padding: 200px 0px;
     }
     width: 100%;
     max-width: 1180px;
@@ -47,6 +47,9 @@ const S = {
     align-items: center;
   `,
   Title: styled.h2`
+    ${media.small} {
+      font-size: 2rem;
+    }
     ${(props) => props.theme.typography.subtitle};
     color: ${(props) => props.theme.palette.white};
     text-align: center;

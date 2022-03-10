@@ -15,7 +15,7 @@ import {
 
 const Layout = (ctx) => {
   const [snackbarMessage, setSnackbarMessage] = useSnackBar(1200);
-  const value = useMemo(() => ({ setSnackbarMessage }), [setSnackbarMessage]); // need to optimize this.
+  const value = useMemo(() => ({ setSnackbarMessage }), [setSnackbarMessage]);
 
   return (
     <S.LayoutImpl>
@@ -35,14 +35,14 @@ export default Layout;
 
 const S = {
   LayoutImpl: styled.div`
-    width: 100%;
+    width: 100vw;
     height: 100%;
   `,
   ContentWrapper: styled.main`
     ${media.small} {
       max-width: 100%;
-      gap: 7rem;
-      overflow: hidden;
+      grid-auto-rows: minmax(1024px, auto);
+      overflow-x: hidden;
     }
     width: 100%;
     height: calc(100% - 70px);

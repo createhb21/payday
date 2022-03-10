@@ -19,13 +19,14 @@ const show = keyframes`
 
 const S = {
   Background: styled.section`
+    ${media.small} {
+      max-width: 100vw;
+    }
     width: 100%;
   `,
   Wrapper: styled.div`
     ${media.small} {
-      max-width: 100%;
-      padding-left: 20px;
-      padding-right: 20px;
+      max-width: 100vw;
     }
     width: 100%;
     max-width: 1180px;
@@ -40,6 +41,11 @@ const S = {
     align-items: center;
 
     .stairs {
+      ${media.small} {
+        font-weight: 500;
+        font-size: 2rem;
+        line-height: 1.3;
+      }
       font-weight: 900;
       font-size: 4.25rem;
       line-height: 1.2;
@@ -49,11 +55,12 @@ const S = {
 
     .stairs.is-running {
       animation: ${show} 2.5s forwards cubic-bezier(0, 0, 0.2, 1);
-      /* -webkit-text-stroke: unset;
-      -webkit-text-fill-color: #91b1ff; */
     }
   `,
   LogoTicle: styled.div`
+    ${media.small} {
+      width: 100vw;
+    }
     width: 750px;
     margin: 0 auto;
     display: flex;
@@ -61,11 +68,20 @@ const S = {
     align-items: center;
   `,
   Logo: styled.div`
+    ${media.small} {
+      width: 200px;
+      height: 2rem;
+    }
     width: 400px;
     height: 4rem;
     background: no-repeat center/cover url(${logo});
   `,
   LogoText: styled.p`
+    ${media.small} {
+      font-weight: 500;
+      font-size: 1.5rem;
+      line-height: 1.1;
+    }
     ${(props) => props.theme.typography.subtitle};
     color: ${(props) => props.theme.palette.darkPurple};
   `,

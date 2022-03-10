@@ -15,6 +15,7 @@ const S = {
   Wrapper: styled.section`
     ${media.small} {
       max-width: 100%;
+      padding: 120px 20px;
       flex-direction: column;
     }
     width: 100%;
