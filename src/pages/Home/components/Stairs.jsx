@@ -34,6 +34,7 @@ const S = {
     padding: 100px 0;
   `,
   Article: styled.div`
+    width: 100%;
     padding-top: 5rem;
     display: flex;
     flex-direction: column;
@@ -42,9 +43,10 @@ const S = {
 
     .stairs {
       ${media.small} {
-        font-weight: 500;
-        font-size: 2rem;
-        line-height: 1.3;
+        font-weight: 700;
+        font-size: 1.3rem;
+        line-height: 2;
+        -webkit-text-stroke: unset;
       }
       font-weight: 900;
       font-size: 4.25rem;
@@ -59,7 +61,8 @@ const S = {
   `,
   LogoTicle: styled.div`
     ${media.small} {
-      width: 100vw;
+      width: 100%;
+      margin-top: 3rem;
     }
     width: 750px;
     margin: 0 auto;
@@ -78,8 +81,8 @@ const S = {
   `,
   LogoText: styled.p`
     ${media.small} {
-      font-weight: 500;
-      font-size: 1.5rem;
+      font-weight: 700;
+      font-size: 1.3rem;
       line-height: 1.1;
     }
     ${(props) => props.theme.typography.subtitle};
@@ -107,11 +110,15 @@ const Stairs = () => {
       <S.Wrapper>
         <S.Article>
           {keywords.map((item, index) => (
-            <p key={item.id} className="stairs" {...animatedItem[index]}>
+            <p
+              key={item.id}
+              className="stairs"
+              {...(animatedItem[index] ?? null)}
+            >
               {item.text}
             </p>
           ))}
-          <S.LogoTicle {...animationPayday}>
+          <S.LogoTicle {...(animationPayday ?? null)}>
             <S.Logo />
             <S.LogoText>에서 해결해 드립니다!</S.LogoText>
           </S.LogoTicle>

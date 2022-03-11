@@ -16,8 +16,11 @@ import {
 const S = {
   Wrapper: styled.footer`
     ${media.small} {
+      min-width: 100%;
       display: grid;
-      grid-template-columns: repeat(2, minmax(50%, auto));
+      grid-template-rows: repeat(4, minmax(200px, auto));
+      gap: 1rem;
+      padding: 50px 30px;
     }
     width: 100%;
     max-width: 1180px;
@@ -29,6 +32,9 @@ const S = {
     flex-wrap: wrap;
   `,
   Info: styled.div`
+    ${media.small} {
+      max-width: 100%;
+    }
     flex: 0 0 30%;
     max-width: 30%;
   `,
@@ -45,21 +51,31 @@ const S = {
     color: ${(props) => props.theme.palette.gray};
     span {
       display: block;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
   `,
   Menu: styled.ul`
+    ${media.small} {
+      max-width: 100%;
+    }
     flex: 0 0 20%;
     max-width: 20%;
     display: flex;
     flex-direction: column;
   `,
   MenuTitle: styled.h4`
+    ${media.small} {
+      color: ${(props) => props.theme.palette.accent};
+      margin-bottom: 1.5rem;
+    }
     ${(props) => props.theme.typography.label};
     color: ${(props) => props.theme.palette.secondary};
     margin-bottom: 2.5rem;
   `,
   MenuItem: styled.a`
+    ${media.small} {
+      width: 100vw;
+    }
     ${(props) => props.theme.typography.body};
     color: ${(props) => props.theme.palette.gray};
     display: inline-block;
@@ -71,6 +87,9 @@ const S = {
     }
   `,
   Subscribe: styled.div`
+    ${media.small} {
+      max-width: 100%;
+    }
     flex: 0 0 30%;
     max-width: 30%;
 
@@ -79,6 +98,15 @@ const S = {
     }
   `,
   Form: styled.form`
+    ${media.small} {
+      width: 100%;
+      flex-direction: column;
+      align-items: space-around;
+
+      button {
+        margin-top: 1rem;
+      }
+    }
     input {
       width: 60%;
     }
@@ -87,6 +115,9 @@ const S = {
     margin-bottom: 1rem;
   `,
   Bottom: styled.div`
+    ${media.small} {
+      display: none;
+    }
     width: 100%;
     color: ${(props) => props.theme.palette.gray};
     margin-top: 120px;

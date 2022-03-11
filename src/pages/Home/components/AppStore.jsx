@@ -29,7 +29,7 @@ const S = {
       ${({ theme }) => theme.palette.accent}
     );
   `,
-  Tilt: styled.article`
+  Tilt: styled.div`
     width: 100%;
     overflow: hidden;
     svg {
@@ -46,14 +46,12 @@ const S = {
   Wrapper: styled.article`
     ${media.small} {
       max-width: 100%;
-      /* height: 1180px; */
-      padding-left: 20px;
-      padding-right: 20px;
+      height: 1180px;
       flex-direction: column;
+      justify-content: space-between;
     }
     width: 100%;
     max-width: 1180px;
-    /* height: 950px; */
     margin: auto;
     padding: 120px 0;
     display: flex;
@@ -70,6 +68,10 @@ const S = {
     justify-content: center;
   `,
   Logo: styled.div`
+    ${media.small} {
+      width: 100px;
+      height: 100px;
+    }
     width: 120px;
     height: 120px;
     border-radius: 15px;
@@ -79,17 +81,26 @@ const S = {
       rgb(255 255 255 / 20%) 0px 0px 0px 1px inset;
   `,
   Label: styled.p`
+    ${media.small} {
+      font-size: 1rem;
+    }
     display: inline-block;
     ${(props) => props.theme.typography.label};
     color: ${(props) => props.theme.palette.white};
     margin-bottom: 1rem;
   `,
   Title: styled.h2`
+    ${media.small} {
+      font-size: 1rem;
+    }
     ${(props) => props.theme.typography.subtitle};
     color: ${(props) => props.theme.palette.white};
     margin-bottom: 1rem;
   `,
   Description: styled.p`
+    ${media.small} {
+      font-size: 1rem;
+    }
     ${(props) => props.theme.typography.description};
     color: ${(props) => props.theme.palette.white};
     margin-bottom: 2rem;
@@ -125,7 +136,7 @@ const S = {
   `,
   Image: styled.div`
     width: 580px;
-    height: 580px;
+    margin-top: 10rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,18 +150,15 @@ const S = {
     align-items: center;
   `,
   Review: styled.div`
-    ${media.small} {
-      width: 90%;
-    }
     width: 100%;
     height: 250px;
     background: no-repeat center/cover url(${(props) => props.image});
 
     &:nth-child(2) {
-      transform: translateY(-97px);
+      transform: translateY(-80px);
     }
     &:nth-last-child(1) {
-      transform: translateY(-217px);
+      transform: translateY(-180px);
     }
   `,
   Stores: styled.span`
@@ -160,7 +168,8 @@ const S = {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateY(-277px);
+    overflow: hidden;
+    transform: translateY(-207px);
   `,
   Store: styled.img.attrs({
     alt: 'store',
@@ -193,7 +202,7 @@ const AppStore = () => {
     2: useScrollFadeIn('up', 1, 0.3),
     3: useScrollCount(4.9, 0, true, 150),
     4: useScrollFadeIn('up', 1, 0.4),
-    5: useScrollClipPath('up'),
+    5: useScrollClipPath('down'),
   };
 
   const { setSnackbarMessage } = useContext(SnackBarContext);

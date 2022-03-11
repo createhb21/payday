@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
 
-import { logo } from '../assets';
-import { calendly, googleForm } from '../constant';
 import { NavItem } from './';
+import { logo } from '../assets';
 import { media } from '../styles';
+import { calendly, googleForm } from '../constant';
 
 const S = {
   Wrapper: styled.div`
@@ -23,6 +23,9 @@ const S = {
         : '5px 5px 10px -5px rgba(0, 0, 0, 0.09)'};
   `,
   Header: styled.header`
+    ${media.large} {
+      padding: 0 30px;
+    }
     width: 100%;
     max-width: 1180px;
     margin: auto;

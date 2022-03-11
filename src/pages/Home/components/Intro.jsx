@@ -33,6 +33,7 @@ const S = {
   Title: styled.h1`
     ${media.small} {
       font-size: 1.3rem;
+      margin-bottom: 0.8rem;
     }
     ${(props) => props.theme.typography.heading};
     color: ${(props) => props.theme.palette.lightBlack};
@@ -71,6 +72,7 @@ const S = {
     ${media.small} {
       width: 350px;
       font-size: 1.2rem;
+      font-weight: 700;
       top: 40px;
       right: 190px;
     }

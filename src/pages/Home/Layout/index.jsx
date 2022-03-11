@@ -41,7 +41,7 @@ const S = {
   ContentWrapper: styled.main`
     ${media.small} {
       max-width: 100%;
-      grid-auto-rows: minmax(1024px, auto);
+      grid-auto-rows: minmax(720px, auto);
       overflow-x: hidden;
     }
     width: 100%;
