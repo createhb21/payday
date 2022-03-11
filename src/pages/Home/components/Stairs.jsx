@@ -27,6 +27,7 @@ const S = {
   Wrapper: styled.div`
     ${media.small} {
       max-width: 100vw;
+      display: none;
     }
     width: 100%;
     max-width: 1180px;

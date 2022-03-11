@@ -45,6 +45,8 @@ const S = {
   `,
   Wrapper: styled.article`
     ${media.small} {
+      display: none;
+
       max-width: 100%;
       height: 1180px;
       flex-direction: column;
@@ -255,7 +257,7 @@ const AppStore = () => {
             </Button>
           </S.Form>
         </S.TextWrapper>
-        <S.Image {...animatedItem[5]}>
+        <S.Image>
           <S.Reviews>
             {reviewItems.map((item) => (
               <S.Review image={item.review} key={item.id} />

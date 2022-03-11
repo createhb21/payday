@@ -7,8 +7,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif; 
   }
+  html, body {
+    overflow-x: hidden;
+  }
   body {
-    overflow-x:hidden;
+    position: relative;
   }
 `;
 

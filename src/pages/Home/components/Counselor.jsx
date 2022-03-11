@@ -14,6 +14,8 @@ import { useScrollFadeIn } from '../../../hooks';
 const S = {
   Wrapper: styled.section`
     ${media.small} {
+      display: none;
+
       max-width: 100%;
       padding-left: 20px;
       padding-right: 20px;

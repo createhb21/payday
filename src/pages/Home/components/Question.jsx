@@ -7,7 +7,7 @@ import { useScrollFadeIn } from '../../../hooks';
 
 const S = {
   Wrapper: styled.section`
-    width: 100vw;
+    width: 100%;
     position: relative;
     background: linear-gradient(
       to top,
@@ -34,12 +34,11 @@ const S = {
   `,
   ContentBox: styled.div`
     ${media.small} {
-      max-width: 100vw;
       padding: 200px 0px;
     }
     width: 100%;
     max-width: 1180px;
-    margin: auto;
+    margin: 0 auto;
     padding: 120px 0;
     display: flex;
     flex-direction: column;

@@ -8,7 +8,9 @@ import { logo, introChat, introPhone } from '../../../assets';
 const S = {
   Wrapper: styled.section`
     ${media.small} {
+      display: none;
       max-width: 100%;
+      min-height: 1024px;
       padding: 60px 20px;
       flex-direction: column;
     }
@@ -21,18 +23,14 @@ const S = {
     justify-content: space-between;
   `,
   TextWrapper: styled.div`
-    ${media.small} {
-      width: 50%;
-    }
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     width: 580px;
-    padding-top: 5rem;
   `,
   Title: styled.h1`
     ${media.small} {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-bottom: 0.8rem;
     }
     ${(props) => props.theme.typography.heading};
@@ -41,9 +39,11 @@ const S = {
   `,
   Logo: styled.div`
     ${media.small} {
-      width: 290px;
+      width: 270px;
       height: 80px;
+      margin: -25px -17px;
     }
+    z-index: -1;
     width: 390px;
     height: 100px;
     background: no-repeat center/cover url(${logo});
@@ -51,14 +51,14 @@ const S = {
   `,
   BlobCover: styled.div`
     ${media.small} {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 8rem;
+      /* margin-top: 8rem; */
       transform: translateX(-50px);
     }
   `,
   Blob: styled.div`
     ${media.small} {
+      /* display: flex; */
+      /* justify-content: flex-end; */
       width: 500px;
       height: 500px;
     }

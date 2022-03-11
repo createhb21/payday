@@ -12,7 +12,7 @@ const S = {
       display: none;
     }
     width: 100%;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1000;
     transition: all 0.2s ease-in-out;
@@ -74,10 +74,10 @@ const Header = () => {
   return (
     <S.Wrapper isScroll={isScroll}>
       <S.Header isScroll={isScroll}>
-        <S.Logo isScroll={isScroll} />
+        <S.Logo />
         <S.Navigation>
-          <NavItem text="Contact us" to={calendly} isScroll={isScroll} />
-          <NavItem text="for CPLA" to={googleForm} isScroll={isScroll} />
+          <NavItem text="Contact us" to={calendly} />
+          <NavItem text="for CPLA" to={googleForm} />
         </S.Navigation>
       </S.Header>
     </S.Wrapper>

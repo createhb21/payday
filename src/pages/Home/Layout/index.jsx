@@ -41,11 +41,13 @@ const S = {
   ContentWrapper: styled.main`
     ${media.small} {
       max-width: 100%;
-      grid-auto-rows: minmax(720px, auto);
+      margin-top: 5rem;
+      grid-auto-rows: minmax(1024px, auto);
       overflow-x: hidden;
     }
     width: 100%;
     height: calc(100% - 70px);
+    margin-top: 10rem;
     display: grid;
     grid-auto-rows: minmax(720px, auto);
     gap: 5rem;

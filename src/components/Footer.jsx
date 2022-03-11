@@ -16,16 +16,16 @@ import {
 const S = {
   Wrapper: styled.footer`
     ${media.small} {
-      min-width: 100%;
+      max-width: 100%;
       display: grid;
       grid-template-rows: repeat(4, minmax(200px, auto));
+      align-items: center;
       gap: 1rem;
-      padding: 50px 30px;
     }
     width: 100%;
     max-width: 1180px;
     margin: auto;
-    padding: 120px 30px;
+    padding: 50px 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -56,7 +56,7 @@ const S = {
   `,
   Menu: styled.ul`
     ${media.small} {
-      max-width: 100%;
+      width: 100%;
     }
     flex: 0 0 20%;
     max-width: 20%;
@@ -65,6 +65,7 @@ const S = {
   `,
   MenuTitle: styled.h4`
     ${media.small} {
+      width: 300px;
       color: ${(props) => props.theme.palette.accent};
       margin-bottom: 1.5rem;
     }
@@ -74,41 +75,34 @@ const S = {
   `,
   MenuItem: styled.a`
     ${media.small} {
-      width: 100vw;
+      width: 300px;
     }
     ${(props) => props.theme.typography.body};
     color: ${(props) => props.theme.palette.gray};
     display: inline-block;
     margin-bottom: 1.5rem;
-    cursor: pointer;
     text-decoration: none;
-    &:hover {
-      opacity: 0.5;
+    cursor: pointer;
+    @media (min-width: 768px) {
+      &:hover {
+        opacity: 0.5;
+      }
     }
   `,
   Subscribe: styled.div`
     ${media.small} {
-      max-width: 100%;
+      width: 100%;
     }
     flex: 0 0 30%;
-    max-width: 30%;
 
     p {
       line-height: 1.5;
     }
   `,
   Form: styled.form`
-    ${media.small} {
-      width: 100%;
-      flex-direction: column;
-      align-items: space-around;
-
-      button {
-        margin-top: 1rem;
-      }
-    }
+    width: 330px;
     input {
-      width: 60%;
+      width: 200px;
     }
     display: flex;
     justify-content: space-between;

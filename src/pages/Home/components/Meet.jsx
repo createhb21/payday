@@ -9,7 +9,7 @@ import { useScrollFadeIn } from '../../../hooks';
 const S = {
   Wrapper: styled.section`
     ${media.small} {
-      max-width: 100vw;
+      width: 100%;
     }
     width: 100%;
     padding: 120px 0;
@@ -25,6 +25,9 @@ const S = {
     margin-bottom: 1rem;
   `,
   Title: styled.h2`
+    ${media.small} {
+      font-size: 2rem;
+    }
     ${(props) => props.theme.typography.subtitle};
     color: ${(props) => props.theme.palette.black};
     margin-bottom: 2rem;
@@ -39,13 +42,15 @@ const S = {
         text-decoration: none;
         color: ${(props) => props.theme.palette.white};
       }
-      &:hover {
-        transform: scale(1.01);
-        background: transparent;
-        a {
-          opacity: 0.7;
-          font-weight: bold;
-          color: ${(props) => props.theme.palette.black};
+      @media (min-width: 768px) {
+        &:hover {
+          transform: scale(1.01);
+          background: transparent;
+          a {
+            opacity: 0.7;
+            font-weight: bold;
+            color: ${(props) => props.theme.palette.black};
+          }
         }
       }
     }

@@ -14,6 +14,8 @@ import { useScrollFadeIn, useScrollClipPath } from '../../../hooks';
 const S = {
   Wrapper: styled.section`
     ${media.small} {
+      display: none;
+
       max-width: 100%;
       padding: 120px 20px;
       flex-direction: column;

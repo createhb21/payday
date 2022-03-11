@@ -21,9 +21,10 @@ const smooth = keyframes`
 const S = {
   NavigationItem: styled.li`
     ${media.small} {
+      margin: 0;
       a {
         font-size: 1rem !important;
-        font-weight: normal !important;
+        font-weight: 600 !important;
         color: ${(props) => props.theme.palette.black} !important;
       }
     }
@@ -82,10 +83,10 @@ const S = {
   `,
 };
 
-function NavItem({ text, to, isScroll }) {
+function NavItem({ text, to }) {
   const dataLink = `#${text}`;
   return (
-    <S.NavigationItem isScroll={isScroll} data-link={dataLink}>
+    <S.NavigationItem data-link={dataLink}>
       <a target="_blank" href={to} rel="noopener noreferrer">
         {text}
       </a>
