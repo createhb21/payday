@@ -8,11 +8,13 @@ import { logo, introChat, introPhone } from '../../../assets';
 const S = {
   Wrapper: styled.section`
     ${media.small} {
-      display: none;
-      max-width: 100%;
+      max-width: 100vw;
       min-height: 1024px;
-      padding: 60px 20px;
       flex-direction: column;
+      justify-content: space-around;
+    }
+    ${media.large} {
+      padding: 120px 20px;
     }
     width: 100%;
     max-width: 1180px;
@@ -26,12 +28,10 @@ const S = {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 580px;
   `,
   Title: styled.h1`
     ${media.small} {
-      font-size: 1.2rem;
-      margin-bottom: 0.8rem;
+      ${(props) => props.theme.typography.subheading};
     }
     ${(props) => props.theme.typography.heading};
     color: ${(props) => props.theme.palette.lightBlack};
@@ -40,72 +40,64 @@ const S = {
   Logo: styled.div`
     ${media.small} {
       width: 270px;
-      height: 80px;
-      margin: -25px -17px;
+      height: 45px;
     }
     z-index: -1;
     width: 390px;
-    height: 100px;
+    height: 70px;
     background: no-repeat center/cover url(${logo});
-    margin: -15px -22px;
   `,
   BlobCover: styled.div`
+    width: 580px;
     ${media.small} {
-      /* margin-top: 8rem; */
-      transform: translateX(-50px);
+      min-width: 120vw;
+      width: 100%;
+      height: 450px;
     }
   `,
   Blob: styled.div`
-    ${media.small} {
-      /* display: flex; */
-      /* justify-content: flex-end; */
-      width: 500px;
-      height: 500px;
-    }
-    width: 580px;
-    height: 580px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     background: #c9e0fe;
     border-radius: 50%;
     position: relative;
   `,
   Description: styled.p`
     ${media.small} {
-      width: 350px;
-      font-size: 1.2rem;
-      font-weight: 700;
-      top: 40px;
-      right: 190px;
+      width: 100%;
+      top: 7%;
+      right: 25%;
+      ${(props) => props.theme.typography.description};
     }
     position: absolute;
     top: 50px;
     right: 130px;
     ${(props) => props.theme.typography.subheading};
+    font-weight: 600;
     color: ${(props) => props.theme.palette.darkPurple};
     text-align: right;
   `,
   Chat: styled.div`
     ${media.small} {
-      width: 240px;
-      height: 350px;
-      bottom: 55px;
-      left: -50px;
+      width: calc(100% * 0.5);
+      bottom: -2%;
+      left: -5%;
     }
-    width: 279px;
-    height: 550px;
+    width: 280px;
+    aspect-ratio: 9 / 16;
     position: absolute;
-    bottom: -50px;
+    bottom: -30px;
     left: 15px;
     background: no-repeat center/cover url(${introChat});
   `,
   Phone: styled.div`
     ${media.small} {
-      width: 100%;
-      height: 350px;
-      bottom: 57px;
-      left: -2px;
+      width: calc(100% * 0.9);
+      bottom: 2%;
+      left: 17%;
     }
-    width: 100%;
-    height: 550px;
+    width: 600px;
+    aspect-ratio: 10 / 9;
     position: absolute;
     bottom: -37px;
     left: 115px;
@@ -119,10 +111,6 @@ const Intro = () => {
     1: useScrollFadeIn('up', 0.7, 0.2),
     2: useScrollFadeIn('down', 0.7, 0.2),
   };
-
-  // useLayoutEffect(() => {
-  //   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // }, []);
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll('.intro'));

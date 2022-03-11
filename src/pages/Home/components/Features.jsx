@@ -15,10 +15,11 @@ const S = {
   Wrapper: styled.section`
     ${media.small} {
       display: none;
-
-      max-width: 100%;
+      max-width: 100vw;
+      min-height: 1024px;
       padding: 120px 20px;
       flex-direction: column;
+      justify-content: space-around;
     }
     width: 100%;
     max-width: 1180px;
@@ -41,17 +42,11 @@ const S = {
     margin-bottom: 1rem;
   `,
   Title: styled.h2`
-    ${media.small} {
-      font-size: 1.3rem;
-    }
     ${(props) => props.theme.typography.subtitle};
     color: ${(props) => props.theme.palette.black};
     margin-bottom: 1rem;
   `,
   Description: styled.p`
-    ${media.small} {
-      font-size: 1.15rem;
-    }
     ${(props) => props.theme.typography.description};
     color: ${(props) => props.theme.palette.black};
     margin-bottom: 2rem;
@@ -61,9 +56,6 @@ const S = {
     margin-bottom: 2rem;
   `,
   ListItem: styled.p`
-    ${media.small} {
-      font-size: 1rem;
-    }
     min-height: 200px;
     ${(props) => props.theme.typography.description};
 
@@ -73,11 +65,6 @@ const S = {
     }
   `,
   Blob: styled.div`
-    ${media.small} {
-      width: 500px;
-      height: 500px;
-      margin-top: 8rem;
-    }
     width: 580px;
     height: 580px;
     background: ${(props) => props.theme.palette.secondary};
@@ -85,10 +72,6 @@ const S = {
     position: relative;
   `,
   BankBook: styled.span`
-    ${media.small} {
-      top: 20px;
-      left: 190px;
-    }
     width: 155px;
     height: 95px;
     position: absolute;
@@ -98,10 +81,6 @@ const S = {
     z-index: 2;
   `,
   Twinkle1: styled.span`
-    ${media.small} {
-      top: -65px;
-      left: -55px;
-    }
     width: 150px;
     height: 106px;
     position: absolute;
@@ -118,10 +97,6 @@ const S = {
     background: no-repeat center/cover url(${twinkle2});
   `,
   Phone1: styled.span`
-    ${media.small} {
-      width: 100%;
-      height: 350px;
-    }
     width: 100%;
     height: 550px;
     position: absolute;
@@ -130,12 +105,6 @@ const S = {
     background: no-repeat center/cover url(${featurePhone});
   `,
   Phone2: styled.span`
-    ${media.small} {
-      width: 100%;
-      height: 350px;
-      bottom: 40px;
-      right: -40px;
-    }
     width: 100%;
     height: 550px;
     position: absolute;

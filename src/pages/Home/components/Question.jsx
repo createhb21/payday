@@ -7,7 +7,7 @@ import { useScrollFadeIn } from '../../../hooks';
 
 const S = {
   Wrapper: styled.section`
-    width: 100%;
+    width: 100vw;
     position: relative;
     background: linear-gradient(
       to top,
@@ -19,9 +19,6 @@ const S = {
     width: 100%;
     overflow: hidden;
     svg {
-      ${media.small} {
-        width: 100%;
-      }
       position: relative;
       display: block;
       width: calc(100% + 1.3px);
