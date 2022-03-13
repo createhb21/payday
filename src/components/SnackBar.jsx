@@ -1,29 +1,8 @@
 import React from 'react';
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { media } from '../styles';
-
-const popInFromBottom = keyframes`
-0% {
-  opacity: 0;
-  transform: translateY(100px) scale(0.75);
-}
-25% {
-  opacity: 0.9;
-  transform: translateY(2.5px) scale(1.0);
-}
-50% {
-  opacity: 0.9;
-  transform: translateY(2.5px) scale(1.0);
-}
-75% {
-  opacity: 0.9;
-  transform: translateY(2.5px) scale(1.0);
-}
-100% {
-  opacity: 0;
-  transform: translateY(100px) scale(0.75);
-}`;
+import { popInFromBottom } from '../constant';
 
 const S = {
   PopupBaseBlock: styled.div`

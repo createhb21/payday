@@ -1,21 +1,10 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 import { logo } from '../../../assets';
 import { media } from '../../../styles';
-import { keywords } from '../../../constant';
+import { keywords, showDown } from '../../../constant';
 import { useScrollTextIn, useScrollFadeIn } from '../../../hooks';
-
-const show = keyframes`
-    from {
-      -webkit-text-stroke: 1px #91b1ff;
-      -webkit-text-fill-color: ${(props) => props.theme.palette.white};
-    }
-    to {
-      -webkit-text-stroke: #91b1ff;
-      -webkit-text-fill-color: #91b1ff;
-    }
-`;
 
 const S = {
   Background: styled.section`
@@ -27,7 +16,9 @@ const S = {
   Wrapper: styled.div`
     ${media.small} {
       max-width: 100%;
-      padding: 100px 20px;
+    }
+    ${media.large} {
+      padding: 120px 20px;
     }
     width: 100%;
     max-width: 1180px;
@@ -54,7 +45,7 @@ const S = {
     }
 
     .stairs.is-running {
-      animation: ${show} 2.5s forwards cubic-bezier(0, 0, 0.2, 1);
+      animation: ${showDown} 2.5s forwards cubic-bezier(0, 0, 0.2, 1);
     }
 
     .mobile-stairs {
@@ -70,7 +61,7 @@ const S = {
       -webkit-text-fill-color: ${(props) => props.theme.palette.white};
     }
     .mobile-stairs.is-running {
-      animation: ${show} 2.5s forwards cubic-bezier(0, 0, 0.2, 1);
+      animation: ${showDown} 2.5s forwards cubic-bezier(0, 0, 0.2, 1);
     }
   `,
   LogoTicle: styled.div`
@@ -86,8 +77,8 @@ const S = {
   `,
   Logo: styled.div`
     ${media.small} {
-      width: 150px;
-      height: 1.5rem;
+      width: 160px;
+      height: 1.6rem;
     }
     width: 400px;
     height: 4rem;

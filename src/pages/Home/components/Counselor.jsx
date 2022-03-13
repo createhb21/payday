@@ -15,10 +15,7 @@ const S = {
   Wrapper: styled.section`
     ${media.small} {
       max-width: 100vw;
-      min-height: 1024px;
       justify-content: space-around;
-      margin-bottom: 10rem;
-
       button {
         display: none;
       }
@@ -95,7 +92,7 @@ const S = {
       display: none;
     }
     width: 100%;
-    height: 550px;
+    aspect-ratio: 10 / 9;
     position: absolute;
     top: 30px;
     left: -160px;
@@ -106,7 +103,7 @@ const S = {
       display: none;
     }
     width: 100%;
-    height: 550px;
+    aspect-ratio: 10 / 9;
     position: absolute;
     top: 30px;
     right: -160px;
@@ -114,7 +111,8 @@ const S = {
   `,
   Chat: styled.div`
     ${media.small} {
-      display: none;
+      top: -20%;
+      left: -8%;
     }
     width: 110%;
     height: 550px;
@@ -123,6 +121,30 @@ const S = {
     left: -40px;
     background: no-repeat center/cover url(${counselorChat});
   `,
+  Mobile1: styled.div`
+    display: none;
+    ${media.small} {
+      display: block;
+      width: 100%;
+      aspect-ratio: 10 / 9;
+      position: absolute;
+      top: 5%;
+      left: -25%;
+      background: no-repeat center/cover url(${counselorPhone1});
+    }
+  `,
+  Mobile2: styled.div`
+    display: none;
+    ${media.small} {
+      display: block;
+      width: 100%;
+      aspect-ratio: 10 / 9;
+      position: absolute;
+      top: 5%;
+      right: -25%;
+      background: no-repeat center/cover url(${counselorPhone2});
+    }
+  `,
 };
 
 const Counselor = () => {
@@ -130,6 +152,11 @@ const Counselor = () => {
     0: useScrollFadeIn('left', 1),
     1: useScrollFadeIn('left', 1, 0.2),
     2: useScrollFadeIn('up', 1, -0.1),
+  };
+
+  const mobileAnimation = {
+    0: useScrollFadeIn('down', 1),
+    1: useScrollFadeIn('down', 1, 0.2),
   };
 
   return (
@@ -147,6 +174,8 @@ const Counselor = () => {
       <S.Blob>
         <S.Phone1 {...animatedItem[0]} />
         <S.Phone2 {...animatedItem[1]} />
+        <S.Mobile1 {...mobileAnimation[0]} />
+        <S.Mobile2 {...mobileAnimation[1]} />
         <S.Chat {...animatedItem[2]} />
       </S.Blob>
       <Button fill="solid">

@@ -31,9 +31,12 @@ const S = {
   `,
   ContentBox: styled.div`
     ${media.small} {
-      padding: 200px 0px;
+      max-width: 100vw;
     }
-    width: 100%;
+    ${media.large} [
+      padding: 120px 20px;
+
+    ]width: 100%;
     max-width: 1180px;
     margin: 0 auto;
     padding: 120px 0;

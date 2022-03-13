@@ -1,22 +1,8 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 import { media } from '../styles';
-
-const smooth = keyframes`
-    0% {
-        top: 90%;
-        left: -110%;
-    }
-    50% {
-        top: -30%;
-        left: 10%;
-    }
-    100% {
-        top: -10%;
-        left: -10%;
-    }
-`;
+import { smooth } from '../constant';
 
 const S = {
   NavigationItem: styled.li`
@@ -25,7 +11,6 @@ const S = {
       a {
         font-size: 1rem !important;
         font-weight: 600 !important;
-        color: ${(props) => props.theme.palette.black} !important;
       }
     }
 

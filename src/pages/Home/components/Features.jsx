@@ -15,7 +15,6 @@ const S = {
   Wrapper: styled.section`
     ${media.small} {
       max-width: 100vw;
-      min-height: 1024px;
       flex-direction: column;
       justify-content: center;
       margin-bottom: 10rem;
@@ -37,6 +36,9 @@ const S = {
     justify-content: space-between;
   `,
   TextWrapper: styled.div`
+    ${media.small} {
+      padding-top: 10rem;
+    }
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,7 +100,11 @@ const S = {
   `,
   BankBook: styled.span`
     ${media.small} {
-      display: none;
+      /* display: none; */
+      width: 90px;
+      height: 50px;
+      top: 7%;
+      left: 41%;
     }
     width: 155px;
     height: 95px;
@@ -110,7 +116,10 @@ const S = {
   `,
   Twinkle1: styled.span`
     ${media.small} {
-      display: none;
+      width: 70px;
+      height: 50px;
+      top: -2%;
+      left: -2%;
     }
     width: 150px;
     height: 106px;
@@ -121,7 +130,10 @@ const S = {
   `,
   Twinkle2: styled.span`
     ${media.small} {
-      display: none;
+      width: 70px;
+      height: 50px;
+      top: 8%;
+      right: -1%;
     }
     width: 150px;
     height: 106px;
@@ -132,10 +144,12 @@ const S = {
   `,
   Phone1: styled.span`
     ${media.small} {
-      display: none;
+      width: calc(100% * 0.85);
+      top: 5%;
+      left: -17%;
     }
     width: 100%;
-    height: 550px;
+    aspect-ratio: 10 / 9;
     position: absolute;
     top: -10px;
     left: -150px;
@@ -143,10 +157,12 @@ const S = {
   `,
   Phone2: styled.span`
     ${media.small} {
-      display: none;
+      width: calc(100% * 0.85);
+      top: 15%;
+      right: -17%;
     }
     width: 100%;
-    height: 550px;
+    aspect-ratio: 10 / 9;
     position: absolute;
     bottom: -10px;
     right: -150px;

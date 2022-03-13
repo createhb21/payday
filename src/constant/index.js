@@ -1,3 +1,5 @@
+import { keyframes } from 'styled-components';
+
 export const calendly = 'https://calendly.com/pledge1226';
 export const googleForm = 'https://forms.gle/dRKLHwt8vYysG61i7';
 export const appStoreLink =
@@ -19,3 +21,51 @@ export const keywords = [
   { id: 7, text: '실업급여' },
   { id: 8, text: '* * *' },
 ];
+
+export const smooth = keyframes`
+    0% {
+        top: 90%;
+        left: -110%;
+    }
+    50% {
+        top: -30%;
+        left: 10%;
+    }
+    100% {
+        top: -10%;
+        left: -10%;
+    }
+`;
+
+export const showDown = keyframes`
+    from {
+      -webkit-text-stroke: 1px #91b1ff;
+      -webkit-text-fill-color: ${(props) => props.theme.palette.white};
+    }
+    to {
+      -webkit-text-stroke: #91b1ff;
+      -webkit-text-fill-color: #91b1ff;
+    }
+`;
+
+export const popInFromBottom = keyframes`
+0% {
+  opacity: 0;
+  transform: translateY(100px) scale(0.75);
+}
+25% {
+  opacity: 0.9;
+  transform: translateY(2.5px) scale(1.0);
+}
+50% {
+  opacity: 0.9;
+  transform: translateY(2.5px) scale(1.0);
+}
+75% {
+  opacity: 0.9;
+  transform: translateY(2.5px) scale(1.0);
+}
+100% {
+  opacity: 0;
+  transform: translateY(100px) scale(0.75);
+}`;

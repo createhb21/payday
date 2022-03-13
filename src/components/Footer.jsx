@@ -16,11 +16,11 @@ import {
 const S = {
   Wrapper: styled.footer`
     ${media.small} {
-      max-width: 100%;
+      max-width: 100vw;
       display: grid;
       grid-template-rows: repeat(4, minmax(170px, auto));
       align-items: center;
-      gap: 1rem;
+      margin-top: -5rem;
     }
     width: 100%;
     max-width: 1180px;

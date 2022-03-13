@@ -9,13 +9,13 @@ const S = {
   Wrapper: styled.section`
     ${media.small} {
       max-width: 100vw;
-      min-height: 1024px;
+      min-height: 800px;
       flex-direction: column;
       justify-content: space-around;
-      margin-bottom: 10rem;
     }
     ${media.large} {
-      padding: 120px 20px;
+      padding: 0 20px;
+      margin-bottom: 5rem;
     }
     width: 100%;
     max-width: 1180px;
@@ -51,9 +51,11 @@ const S = {
   BlobCover: styled.div`
     width: 580px;
     ${media.small} {
-      min-width: 120vw;
-      width: 100%;
+      width: 120vw;
       height: 450px;
+    }
+    ${media.medium} {
+      margin-bottom: 5rem;
     }
   `,
   Blob: styled.div`
@@ -80,22 +82,22 @@ const S = {
   `,
   Chat: styled.div`
     ${media.small} {
-      width: calc(100% * 0.5);
-      bottom: -2%;
-      left: -5%;
+      width: calc(100% * 0.4);
+      bottom: 12%;
+      left: 5%;
     }
     width: 280px;
     aspect-ratio: 9 / 16;
     position: absolute;
-    bottom: -30px;
+    bottom: -10px;
     left: 15px;
     background: no-repeat center/cover url(${introChat});
   `,
   Phone: styled.div`
     ${media.small} {
-      width: calc(100% * 0.9);
-      bottom: 2%;
-      left: 15%;
+      width: calc(100% * 0.82);
+      bottom: 10%;
+      left: 20%;
     }
     width: 600px;
     aspect-ratio: 10 / 9;

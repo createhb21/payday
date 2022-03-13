@@ -9,8 +9,7 @@ import { useScrollFadeIn } from '../../../hooks';
 const S = {
   Wrapper: styled.section`
     ${media.small} {
-      width: 100%;
-      max-height: 800px;
+      width: 100vw;
     }
     width: 100%;
     padding: 120px 0;
