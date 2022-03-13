@@ -71,7 +71,7 @@ const S = {
 };
 
 const Question = () => {
-  const aniumation = useScrollFadeIn('down', 1);
+  const animation = useScrollFadeIn('down', 1);
   const animatedImage = useScrollFadeIn('up', 0.7);
 
   return (
@@ -89,7 +89,7 @@ const Question = () => {
           />
         </svg>
       </S.Tilt>
-      <S.ContentBox {...aniumation}>
+      <S.ContentBox {...animation}>
         <S.Title>
           내 월급,
           <br />

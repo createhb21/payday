@@ -84,7 +84,7 @@ const S = {
 
     & > b {
       font-weight: bold;
-      color: ${(props) => props.theme.palette.darkPurple};
+      color: ${(props) => props.theme.palette.accent};
     }
   `,
   Blob: styled.div`

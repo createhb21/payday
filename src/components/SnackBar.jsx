@@ -26,12 +26,12 @@ const S = {
     ${media.small} {
       width: calc(70% + 50px);
       height: 1rem;
-      padding: 1.7rem 1.3rem;
+      padding: 1.55rem 1.77rem;
       font-size: 0.9rem;
       margin-right: 0;
-      border-radius: 22px;
-      opacity: 0.7;
-      color: ${(props) => props.theme.palette.lightGray};
+      border-radius: 8px;
+      justify-content: flex-start;
+      color: ${(props) => props.theme.palette.lightWhite};
       background: ${(props) => props.theme.palette.lightBlack};
     }
     width: 13rem;

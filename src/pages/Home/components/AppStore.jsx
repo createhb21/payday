@@ -46,7 +46,6 @@ const S = {
   Wrapper: styled.article`
     ${media.small} {
       max-width: 100vw;
-      min-height: 1024px;
       padding: 120px 20px;
       flex-direction: column;
       justify-content: space-around;

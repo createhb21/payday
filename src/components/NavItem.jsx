@@ -9,8 +9,8 @@ const S = {
     ${media.small} {
       margin: 0;
       a {
-        font-size: 1rem !important;
-        font-weight: 600 !important;
+        font-size: 0.9rem !important;
+        font-weight: 700 !important;
       }
     }
 

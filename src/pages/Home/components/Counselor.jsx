@@ -16,12 +16,13 @@ const S = {
     ${media.small} {
       max-width: 100vw;
       justify-content: space-around;
+      padding: 0px 20px;
       button {
         display: none;
       }
     }
     ${media.large} {
-      padding: 120px 20px;
+      padding: 120px 20px 0 20px;
     }
     width: 100%;
     max-width: 1180px;

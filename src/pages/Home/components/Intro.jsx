@@ -15,7 +15,6 @@ const S = {
     }
     ${media.large} {
       padding: 0 20px;
-      margin-bottom: 5rem;
     }
     width: 100%;
     max-width: 1180px;
@@ -51,8 +50,7 @@ const S = {
   BlobCover: styled.div`
     width: 580px;
     ${media.small} {
-      width: 120vw;
-      height: 450px;
+      width: 110vw;
     }
     ${media.medium} {
       margin-bottom: 5rem;
@@ -69,7 +67,7 @@ const S = {
     ${media.small} {
       width: 100%;
       top: 7%;
-      right: 25%;
+      right: 20%;
       ${(props) => props.theme.typography.mobileDescription};
     }
     position: absolute;
@@ -82,9 +80,9 @@ const S = {
   `,
   Chat: styled.div`
     ${media.small} {
-      width: calc(100% * 0.4);
-      bottom: 12%;
-      left: 5%;
+      width: calc(100% * 0.47);
+      bottom: 8%;
+      left: 4%;
     }
     width: 280px;
     aspect-ratio: 9 / 16;
@@ -96,8 +94,8 @@ const S = {
   Phone: styled.div`
     ${media.small} {
       width: calc(100% * 0.82);
-      bottom: 10%;
-      left: 20%;
+      bottom: 11%;
+      left: 27%;
     }
     width: 600px;
     aspect-ratio: 10 / 9;

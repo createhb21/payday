@@ -17,15 +17,15 @@ const S = {
     ${media.small} {
       max-width: 100%;
     }
-    ${media.large} {
-      padding: 120px 20px;
-    }
     width: 100%;
     max-width: 1180px;
     margin: auto;
     padding: 100px 0;
   `,
   Article: styled.div`
+    ${media.small} {
+      padding-top: 0;
+    }
     width: 100%;
     padding-top: 5rem;
     display: flex;
@@ -76,17 +76,24 @@ const S = {
     align-items: center;
   `,
   Logo: styled.div`
-    ${media.small} {
+    ${media.xsmall} {
       width: 160px;
       height: 1.6rem;
+    }
+    ${media.small} {
+      width: 170px;
+      height: 1.7rem;
     }
     width: 400px;
     height: 4rem;
     background: no-repeat center/cover url(${logo});
   `,
   LogoText: styled.p`
+    ${media.xsmall} {
+      font-size: 1.25rem;
+    }
     ${media.small} {
-      ${(props) => props.theme.typography.mobileDescription};
+      ${(props) => props.theme.typography.mobileTitle};
     }
     ${(props) => props.theme.typography.subtitle};
     color: ${(props) => props.theme.palette.darkPurple};

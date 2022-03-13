@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 
 import { NavItem } from './';
@@ -15,13 +15,17 @@ const S = {
     overflow: hidden;
     align-items: center;
     justify-content: space-around;
-    height: 55px;
+    height: ${(props) => (props.isScroll ? '55px' : '65px')};
+    transition: all 0.2s ease-in-out;
     min-width: 100%;
     position: fixed;
     top: 0;
     z-index: 1000;
     background-color: ${({ theme }) => theme.palette.white};
-    box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.29);
+    box-shadow: ${(props) =>
+      props.isScroll
+        ? '5px 5px 10px -5px #00000070'
+        : '5px 5px 10px -5px rgba(0, 0, 0, 0.09)'};
   `,
   Logo: styled.img.attrs({
     src: `${mobileLogo}`,
@@ -32,8 +36,25 @@ const S = {
 };
 
 const Header = () => {
+  const [isScroll, setIsScroll] = useState(false);
+
+  const handleScroll = useCallback(() => {
+    if (window.pageYOffset > 0) {
+      setIsScroll(true);
+    }
+    if (window.pageYOffset === 0) {
+      setIsScroll(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('mousewheel', handleScroll);
+    return () => {
+      window.removeEventListener('mousewheel', handleScroll);
+    };
+  }, [handleScroll]);
   return (
-    <S.Wrapper>
+    <S.Wrapper isScroll={isScroll}>
       <NavItem text="Contact us" to={calendly} />
       <S.Logo src={mobileLogo} />
       <NavItem text="for CPLA" to={googleForm} />
