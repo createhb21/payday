@@ -14,11 +14,17 @@ import { useScrollFadeIn } from '../../../hooks';
 const S = {
   Wrapper: styled.section`
     ${media.small} {
-      display: none;
+      max-width: 100vw;
+      min-height: 1024px;
+      justify-content: space-around;
+      margin-bottom: 10rem;
 
-      max-width: 100%;
-      padding-left: 20px;
-      padding-right: 20px;
+      button {
+        display: none;
+      }
+    }
+    ${media.large} {
+      padding: 120px 20px;
     }
     width: 100%;
     max-width: 1180px;
@@ -47,33 +53,47 @@ const S = {
     }
   `,
   Label: styled.p`
+    ${media.small} {
+      ${(props) => props.theme.typography.mobileLabel};
+    }
     display: inline-block;
     ${(props) => props.theme.typography.label};
     color: ${(props) => props.theme.palette.primary};
     margin-bottom: 1rem;
   `,
   Title: styled.h2`
+    ${media.small} {
+      ${(props) => props.theme.typography.mobileTitle};
+    }
     ${(props) => props.theme.typography.subtitle};
     color: ${(props) => props.theme.palette.black};
     text-align: center;
     margin-bottom: 1rem;
   `,
   Description: styled.p`
+    ${media.small} {
+      ${(props) => props.theme.typography.mobileDescription};
+    }
     ${(props) => props.theme.typography.description};
     color: ${(props) => props.theme.palette.black};
     text-align: center;
     margin-bottom: 6rem;
   `,
-
-  List: styled.div`
+  Blob: styled.div`
+    ${media.small} {
+      width: 97%;
+    }
     width: 580px;
-    height: 580px;
+    aspect-ratio: 1 / 1;
     background: ${(props) => props.theme.palette.secondary};
     border-radius: 50%;
     position: relative;
     margin-bottom: 4rem;
   `,
   Phone1: styled.div`
+    ${media.small} {
+      display: none;
+    }
     width: 100%;
     height: 550px;
     position: absolute;
@@ -82,6 +102,9 @@ const S = {
     background: no-repeat center/cover url(${counselorPhone1});
   `,
   Phone2: styled.div`
+    ${media.small} {
+      display: none;
+    }
     width: 100%;
     height: 550px;
     position: absolute;
@@ -90,6 +113,9 @@ const S = {
     background: no-repeat center/cover url(${counselorPhone2});
   `,
   Chat: styled.div`
+    ${media.small} {
+      display: none;
+    }
     width: 110%;
     height: 550px;
     position: absolute;
@@ -103,7 +129,7 @@ const Counselor = () => {
   const animatedItem = {
     0: useScrollFadeIn('left', 1),
     1: useScrollFadeIn('left', 1, 0.2),
-    2: useScrollFadeIn('up', 1),
+    2: useScrollFadeIn('up', 1, -0.1),
   };
 
   return (
@@ -118,11 +144,11 @@ const Counselor = () => {
         공인노무사와의 간단한 상담부터 문제 해결까지 <br />
         복잡한 과정은 건너뛰고 한번에!
       </S.Description>
-      <S.List>
+      <S.Blob>
         <S.Phone1 {...animatedItem[0]} />
         <S.Phone2 {...animatedItem[1]} />
         <S.Chat {...animatedItem[2]} />
-      </S.List>
+      </S.Blob>
       <Button fill="solid">
         <a target="_blank" href={appStoreLink} rel="noopener noreferrer">
           앱 다운로드하기

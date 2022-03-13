@@ -21,7 +21,7 @@ import {
 
 const S = {
   Background: styled.section`
-    width: 100%;
+    width: 100vw;
     position: relative;
     background: linear-gradient(
       to top,
@@ -45,15 +45,20 @@ const S = {
   `,
   Wrapper: styled.article`
     ${media.small} {
-      display: none;
-
-      max-width: 100%;
-      height: 1180px;
+      max-width: 100vw;
+      min-height: 1024px;
+      padding: 120px 20px;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-around;
+      align-items: center;
+
+      button {
+        display: none;
+      }
     }
     width: 100%;
     max-width: 1180px;
+    min-height: 1180px;
     margin: auto;
     padding: 120px 0;
     display: flex;
@@ -62,6 +67,11 @@ const S = {
     align-items: center;
   `,
   TextWrapper: styled.div`
+    ${media.small} {
+      width: 100%;
+      padding-left: 0;
+      align-items: center;
+    }
     box-sizing: border-box;
     width: 580px;
     padding-left: 50px;
@@ -85,6 +95,7 @@ const S = {
   Label: styled.p`
     ${media.small} {
       font-size: 1rem;
+      text-align: center;
     }
     display: inline-block;
     ${(props) => props.theme.typography.label};
@@ -94,6 +105,7 @@ const S = {
   Title: styled.h2`
     ${media.small} {
       font-size: 1rem;
+      text-align: center;
     }
     ${(props) => props.theme.typography.subtitle};
     color: ${(props) => props.theme.palette.white};
@@ -102,6 +114,7 @@ const S = {
   Description: styled.p`
     ${media.small} {
       font-size: 1rem;
+      text-align: center;
     }
     ${(props) => props.theme.typography.description};
     color: ${(props) => props.theme.palette.white};
@@ -112,12 +125,6 @@ const S = {
     }
   `,
   Form: styled.form`
-    display: flex;
-    flex-direction: column;
-    input {
-      margin-bottom: 1rem;
-      width: 70%;
-    }
     button {
       width: 70%;
       transition: all 0.2s ease-in-out;
@@ -126,63 +133,71 @@ const S = {
         text-decoration: none;
         color: ${(props) => props.theme.palette.white};
       }
-      &:hover {
-        transform: scale(1.01);
-        a {
-          opacity: 0.7;
-          font-weight: bold;
-          color: ${(props) => props.theme.palette.black};
+      @media (min-width: 768px) {
+        &:hover {
+          transform: scale(1.01);
+          a {
+            opacity: 0.7;
+            font-weight: bold;
+            color: ${(props) => props.theme.palette.black};
+          }
         }
       }
     }
   `,
   Image: styled.div`
     width: 580px;
-    margin-top: 10rem;
+    height: 580px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
   `,
   Reviews: styled.div`
-    flex: 1 1 80%;
+    ${media.small} {
+      display: none;
+    }
     width: 150%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    position: relative;
+    /* z-index: 10; */
   `,
   Review: styled.div`
     width: 100%;
     height: 250px;
+    position: absolute;
     background: no-repeat center/cover url(${(props) => props.image});
 
+    &:nth-child(1) {
+      top: -30px;
+    }
     &:nth-child(2) {
-      transform: translateY(-80px);
+      top: 130px;
     }
     &:nth-last-child(1) {
-      transform: translateY(-180px);
+      top: 267px;
     }
   `,
   Stores: styled.span`
-    flex: 1 1 20%;
+    ${media.small} {
+      position: static;
+      justify-content: center;
+    }
     width: 100%;
-    max-height: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 16px;
+    left: 10px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    overflow: hidden;
-    transform: translateY(-207px);
   `,
   Store: styled.img.attrs({
     alt: 'store',
   })`
-    width: 270px;
-    height: 270px;
-
-    &:nth-of-type(2) {
-      transform: translateX(-50px);
+    ${media.small} {
+      width: 200px;
     }
-
+    width: 260px;
+    aspect-ratio: 1 / 1;
     cursor: pointer;
   `,
 };
@@ -204,7 +219,7 @@ const AppStore = () => {
     2: useScrollFadeIn('up', 1, 0.3),
     3: useScrollCount(4.9, 0, true, 150),
     4: useScrollFadeIn('up', 1, 0.4),
-    5: useScrollClipPath('down'),
+    5: useScrollClipPath('up'),
   };
 
   const { setSnackbarMessage } = useContext(SnackBarContext);
@@ -214,6 +229,17 @@ const AppStore = () => {
     } else {
       window.open(appStoreLink, '_blank');
     }
+  };
+
+  const newAni = {
+    0: useScrollFadeIn('up', 1, 0),
+    1: useScrollFadeIn('up', 1, 0.2),
+    2: useScrollFadeIn('up', 1, 0.3),
+  };
+
+  const newAnimation = {
+    0: useScrollFadeIn('up', 1, 0),
+    1: useScrollFadeIn('up', 1, 0.2),
   };
 
   return (
@@ -260,7 +286,11 @@ const AppStore = () => {
         <S.Image>
           <S.Reviews>
             {reviewItems.map((item) => (
-              <S.Review image={item.review} key={item.id} />
+              <S.Review
+                image={item.review}
+                key={item.id}
+                {...newAni[item.id]}
+              />
             ))}
           </S.Reviews>
           <S.Stores>
@@ -268,6 +298,7 @@ const AppStore = () => {
               <S.Store
                 src={item.store}
                 key={item.id}
+                {...newAnimation[item.id]}
                 onClick={() => handleSnackBar(item.id)}
               />
             ))}

@@ -44,6 +44,7 @@ const S = {
       margin-top: 5rem;
       grid-auto-rows: minmax(1024px, auto);
       overflow-x: hidden;
+      gap: 0;
     }
     width: 100%;
     height: calc(100% - 70px);

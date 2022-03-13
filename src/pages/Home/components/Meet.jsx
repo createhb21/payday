@@ -10,6 +10,7 @@ const S = {
   Wrapper: styled.section`
     ${media.small} {
       width: 100%;
+      max-height: 800px;
     }
     width: 100%;
     padding: 120px 0;
@@ -38,6 +39,7 @@ const S = {
       border: 1px solid ${(props) => props.theme.palette.primary};
       transition: all 0.2s ease-in-out;
       a {
+        width: 100%;
         transition: all 0.2s ease-in-out;
         text-decoration: none;
         color: ${(props) => props.theme.palette.white};

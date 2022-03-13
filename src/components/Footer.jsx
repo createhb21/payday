@@ -18,7 +18,7 @@ const S = {
     ${media.small} {
       max-width: 100%;
       display: grid;
-      grid-template-rows: repeat(4, minmax(200px, auto));
+      grid-template-rows: repeat(4, minmax(170px, auto));
       align-items: center;
       gap: 1rem;
     }
@@ -39,6 +39,9 @@ const S = {
     max-width: 30%;
   `,
   Logo: styled.span`
+    ${media.small} {
+      margin-bottom: 1.5rem;
+    }
     ${(props) => props.theme.typography.label};
     color: ${(props) => props.theme.palette.darkgray};
     display: inline-block;
@@ -67,7 +70,7 @@ const S = {
     ${media.small} {
       width: 300px;
       color: ${(props) => props.theme.palette.accent};
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
     ${(props) => props.theme.typography.label};
     color: ${(props) => props.theme.palette.secondary};
@@ -76,6 +79,7 @@ const S = {
   MenuItem: styled.a`
     ${media.small} {
       width: 300px;
+      margin-bottom: 1rem;
     }
     ${(props) => props.theme.typography.body};
     color: ${(props) => props.theme.palette.gray};
@@ -94,7 +98,6 @@ const S = {
       width: 100%;
     }
     flex: 0 0 30%;
-
     p {
       line-height: 1.5;
     }
@@ -102,7 +105,11 @@ const S = {
   Form: styled.form`
     width: 330px;
     input {
+      margin-right: 1rem;
       width: 200px;
+    }
+    a {
+      width: 100%;
     }
     display: flex;
     justify-content: space-between;
@@ -180,10 +187,10 @@ const Footer = () => {
             Subscribe
           </Button>
         </S.Form>
-        <S.Text>Let's subscribe our serviece, Payday! </S.Text>
+        <S.Text>Let's subscribe our service, Payday! </S.Text>
       </S.Subscribe>
       <S.Bottom>
-        <span>PAYDAY © 2022</span>
+        <span>PAYDAY © 2021</span>
       </S.Bottom>
     </S.Wrapper>
   );

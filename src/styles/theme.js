@@ -63,6 +63,23 @@ const theme = {
       fontSize: '1rem',
       border: 0,
     },
+    mobileTitle: {
+      fontFamily: '"Noto Sans KR", sans-serif',
+      fontSize: '1.5rem',
+      fontWeight: 600,
+      lineHeight: 1.5,
+    },
+    mobileDescription: {
+      fontFamily: '"Noto Sans KR", sans-serif',
+      fontSize: '1rem',
+      lineHeight: 1.45,
+    },
+    mobileLabel: {
+      fontFamily: '"Noto Sans KR", sans-serif',
+      fontSize: '1rem',
+      lineHeight: 1.45,
+      fontWeight: 700,
+    },
   },
 };
 

@@ -8,11 +8,11 @@ import { useScrollTextIn, useScrollFadeIn } from '../../../hooks';
 
 const show = keyframes`
     from {
-      -webkit-text-stroke: 1px ${(props) => props.theme.palette.lightPurple};
+      -webkit-text-stroke: 1px #91b1ff;
       -webkit-text-fill-color: ${(props) => props.theme.palette.white};
     }
     to {
-      -webkit-text-stroke: unset;
+      -webkit-text-stroke: #91b1ff;
       -webkit-text-fill-color: #91b1ff;
     }
 `;
@@ -26,8 +26,8 @@ const S = {
   `,
   Wrapper: styled.div`
     ${media.small} {
-      max-width: 100vw;
-      display: none;
+      max-width: 100%;
+      padding: 100px 20px;
     }
     width: 100%;
     max-width: 1180px;
@@ -44,26 +44,39 @@ const S = {
 
     .stairs {
       ${media.small} {
-        font-weight: 700;
-        font-size: 1.3rem;
-        line-height: 2;
-        -webkit-text-stroke: unset;
+        display: none;
       }
       font-weight: 900;
       font-size: 4.25rem;
       line-height: 1.2;
-      -webkit-text-stroke: 1px ${(props) => props.theme.palette.lightPurle};
+      -webkit-text-stroke: 1px #91b1ff;
       -webkit-text-fill-color: ${(props) => props.theme.palette.white};
     }
 
     .stairs.is-running {
       animation: ${show} 2.5s forwards cubic-bezier(0, 0, 0.2, 1);
     }
+
+    .mobile-stairs {
+      display: none;
+      ${media.small} {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 900;
+        line-height: 1.5;
+        -webkit-text-stroke: unset;
+      }
+      -webkit-text-stroke: 1px #91b1ff;
+      -webkit-text-fill-color: ${(props) => props.theme.palette.white};
+    }
+    .mobile-stairs.is-running {
+      animation: ${show} 2.5s forwards cubic-bezier(0, 0, 0.2, 1);
+    }
   `,
   LogoTicle: styled.div`
     ${media.small} {
       width: 100%;
-      margin-top: 3rem;
+      margin-top: 2rem;
     }
     width: 750px;
     margin: 0 auto;
@@ -73,8 +86,8 @@ const S = {
   `,
   Logo: styled.div`
     ${media.small} {
-      width: 200px;
-      height: 2rem;
+      width: 150px;
+      height: 1.5rem;
     }
     width: 400px;
     height: 4rem;
@@ -82,9 +95,7 @@ const S = {
   `,
   LogoText: styled.p`
     ${media.small} {
-      font-weight: 700;
-      font-size: 1.3rem;
-      line-height: 1.1;
+      ${(props) => props.theme.typography.mobileDescription};
     }
     ${(props) => props.theme.typography.subtitle};
     color: ${(props) => props.theme.palette.darkPurple};
@@ -104,6 +115,18 @@ const Stairs = () => {
     8: useScrollTextIn('right', 1.5),
   };
 
+  const mobileAnimation = {
+    0: useScrollTextIn('down', 1.5),
+    1: useScrollTextIn('down', 1.5),
+    2: useScrollTextIn('down', 1.5),
+    3: useScrollTextIn('down', 1.5),
+    4: useScrollTextIn('down', 1.5),
+    5: useScrollTextIn('down', 1.5),
+    6: useScrollTextIn('down', 1.5),
+    7: useScrollTextIn('down', 1.5),
+    8: useScrollTextIn('down', 1.5),
+  };
+
   const animationPayday = useScrollFadeIn('down', 2, 0.4);
 
   return (
@@ -111,15 +134,21 @@ const Stairs = () => {
       <S.Wrapper>
         <S.Article>
           {keywords.map((item, index) => (
+            <p key={item.id} className="stairs" {...animatedItem[index]}>
+              {item.text}
+            </p>
+          ))}
+          {keywords.map((item, index) => (
             <p
-              key={item.id}
-              className="stairs"
-              {...(animatedItem[index] ?? null)}
+              key={index + Math.random()}
+              className="mobile-stairs"
+              {...mobileAnimation[index]}
             >
               {item.text}
             </p>
           ))}
-          <S.LogoTicle {...(animationPayday ?? null)}>
+
+          <S.LogoTicle {...animationPayday}>
             <S.Logo />
             <S.LogoText>에서 해결해 드립니다!</S.LogoText>
           </S.LogoTicle>

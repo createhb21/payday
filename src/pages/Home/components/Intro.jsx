@@ -12,6 +12,7 @@ const S = {
       min-height: 1024px;
       flex-direction: column;
       justify-content: space-around;
+      margin-bottom: 10rem;
     }
     ${media.large} {
       padding: 120px 20px;
@@ -31,7 +32,7 @@ const S = {
   `,
   Title: styled.h1`
     ${media.small} {
-      ${(props) => props.theme.typography.subheading};
+      ${(props) => props.theme.typography.mobileDescription};
     }
     ${(props) => props.theme.typography.heading};
     color: ${(props) => props.theme.palette.lightBlack};
@@ -67,7 +68,7 @@ const S = {
       width: 100%;
       top: 7%;
       right: 25%;
-      ${(props) => props.theme.typography.description};
+      ${(props) => props.theme.typography.mobileDescription};
     }
     position: absolute;
     top: 50px;
@@ -94,7 +95,7 @@ const S = {
     ${media.small} {
       width: calc(100% * 0.9);
       bottom: 2%;
-      left: 17%;
+      left: 15%;
     }
     width: 600px;
     aspect-ratio: 10 / 9;

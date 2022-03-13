@@ -14,12 +14,19 @@ import { useScrollFadeIn, useScrollClipPath } from '../../../hooks';
 const S = {
   Wrapper: styled.section`
     ${media.small} {
-      display: none;
       max-width: 100vw;
       min-height: 1024px;
-      padding: 120px 20px;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: center;
+      margin-bottom: 10rem;
+      background: linear-gradient(
+        to bottom,
+        ${({ theme }) => theme.palette.secondary},
+        ${({ theme }) => theme.palette.accent}
+      );
+    }
+    ${media.large} {
+      padding: 120px 20px;
     }
     width: 100%;
     max-width: 1180px;
@@ -33,29 +40,43 @@ const S = {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 580px;
   `,
   Label: styled.p`
+    ${media.small} {
+      ${(props) => props.theme.typography.mobileLabel};
+    }
     display: inline-block;
     ${(props) => props.theme.typography.label};
     color: ${(props) => props.theme.palette.primary};
     margin-bottom: 1rem;
   `,
   Title: styled.h2`
+    ${media.small} {
+      ${(props) => props.theme.typography.mobileTitle};
+    }
     ${(props) => props.theme.typography.subtitle};
     color: ${(props) => props.theme.palette.black};
     margin-bottom: 1rem;
   `,
   Description: styled.p`
+    ${media.small} {
+      ${(props) => props.theme.typography.mobileDescription};
+    }
     ${(props) => props.theme.typography.description};
     color: ${(props) => props.theme.palette.black};
     margin-bottom: 2rem;
   `,
   List: styled.span`
+    ${media.small} {
+      margin-bottom: 0;
+    }
     width: fit-content;
     margin-bottom: 2rem;
   `,
   ListItem: styled.p`
+    ${media.small} {
+      ${(props) => props.theme.typography.mobileDescription};
+    }
     min-height: 200px;
     ${(props) => props.theme.typography.description};
 
@@ -65,13 +86,20 @@ const S = {
     }
   `,
   Blob: styled.div`
+    ${media.small} {
+      width: 97%;
+      background: #6e98fa;
+    }
     width: 580px;
-    height: 580px;
+    aspect-ratio: 1 / 1;
     background: ${(props) => props.theme.palette.secondary};
     border-radius: 50%;
     position: relative;
   `,
   BankBook: styled.span`
+    ${media.small} {
+      display: none;
+    }
     width: 155px;
     height: 95px;
     position: absolute;
@@ -81,6 +109,9 @@ const S = {
     z-index: 2;
   `,
   Twinkle1: styled.span`
+    ${media.small} {
+      display: none;
+    }
     width: 150px;
     height: 106px;
     position: absolute;
@@ -89,6 +120,9 @@ const S = {
     background: no-repeat center/cover url(${twinkle1});
   `,
   Twinkle2: styled.span`
+    ${media.small} {
+      display: none;
+    }
     width: 150px;
     height: 106px;
     position: absolute;
@@ -97,6 +131,9 @@ const S = {
     background: no-repeat center/cover url(${twinkle2});
   `,
   Phone1: styled.span`
+    ${media.small} {
+      display: none;
+    }
     width: 100%;
     height: 550px;
     position: absolute;
@@ -105,6 +142,9 @@ const S = {
     background: no-repeat center/cover url(${featurePhone});
   `,
   Phone2: styled.span`
+    ${media.small} {
+      display: none;
+    }
     width: 100%;
     height: 550px;
     position: absolute;
@@ -122,8 +162,8 @@ const Features = () => {
     2: useScrollFadeIn('up'),
   };
   const animatedImage = {
-    0: useScrollClipPath('up', 0.7),
-    1: useScrollClipPath('up', 0.9, 0.2),
+    0: useScrollFadeIn('up'),
+    1: useScrollFadeIn('up', 1.2, 0.1),
   };
 
   return (
