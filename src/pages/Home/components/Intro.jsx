@@ -31,7 +31,7 @@ const S = {
   `,
   Title: styled.h1`
     ${media.small} {
-      font-weight: 600;
+      font-weight: 500;
       ${(props) => props.theme.typography.mobileDescription};
       padding-left: 1rem;
     }
