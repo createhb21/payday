@@ -15,17 +15,13 @@ const S = {
     overflow: hidden;
     align-items: center;
     justify-content: space-around;
-    height: ${(props) => (props.isScroll ? '55px' : '65px')};
-    transition: all 0.2s ease-in-out;
+    height: 55px;
     min-width: 100%;
     position: fixed;
     top: 0;
     z-index: 1000;
     background-color: ${({ theme }) => theme.palette.white};
-    box-shadow: ${(props) =>
-      props.isScroll
-        ? '5px 5px 10px -5px #00000070'
-        : '5px 5px 10px -5px rgba(0, 0, 0, 0.09)'};
+    box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.09);
   `,
   Logo: styled.img.attrs({
     src: `${mobileLogo}`,

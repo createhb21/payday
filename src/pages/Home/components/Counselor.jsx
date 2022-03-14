@@ -5,6 +5,7 @@ import {
   counselorChat,
   counselorPhone1,
   counselorPhone2,
+  vain,
 } from '../../../assets';
 import { media } from '../../../styles';
 import { Button } from '../../../components';
@@ -81,6 +82,7 @@ const S = {
     ${media.small} {
       width: 97%;
     }
+    z-index: -1;
     width: 580px;
     aspect-ratio: 1 / 1;
     background: ${(props) => props.theme.palette.secondary};
@@ -95,8 +97,8 @@ const S = {
     width: 100%;
     aspect-ratio: 10 / 9;
     position: absolute;
-    top: 30px;
-    left: -160px;
+    top: 0px;
+    left: -140px;
     background: no-repeat center/cover url(${counselorPhone1});
   `,
   Phone2: styled.div`
@@ -106,19 +108,20 @@ const S = {
     width: 100%;
     aspect-ratio: 10 / 9;
     position: absolute;
-    top: 30px;
-    right: -160px;
+    top: 0px;
+    right: -140px;
     background: no-repeat center/cover url(${counselorPhone2});
   `,
   Chat: styled.div`
     ${media.small} {
-      top: -20%;
+      top: 20%;
       left: -8%;
+      height: 300px;
     }
     width: 110%;
-    height: 550px;
+    height: 400px;
     position: absolute;
-    top: 70px;
+    top: 120px;
     left: -40px;
     background: no-repeat center/cover url(${counselorChat});
   `,
@@ -145,6 +148,51 @@ const S = {
       right: -25%;
       background: no-repeat center/cover url(${counselorPhone2});
     }
+  `,
+  Vain1: styled.div`
+    ${media.small} {
+      width: 60px;
+      height: 50px;
+      top: -2%;
+      left: -2%;
+    }
+    width: 125px;
+    height: 95px;
+    position: absolute;
+    top: -25px;
+    left: -45px;
+    background: no-repeat center/cover url(${vain});
+    z-index: -1;
+  `,
+  Vain2: styled.div`
+    ${media.small} {
+      width: 60px;
+      height: 50px;
+      top: 25%;
+      left: 40%;
+    }
+    width: 125px;
+    height: 95px;
+    position: absolute;
+    background: no-repeat center/cover url(${vain});
+    z-index: -1;
+    top: 150px;
+    left: 230px;
+  `,
+  Vain3: styled.div`
+    ${media.small} {
+      width: 60px;
+      height: 50px;
+      top: -8%;
+      right: 1%;
+    }
+    width: 125px;
+    height: 95px;
+    position: absolute;
+    background: no-repeat center/cover url(${vain});
+    z-index: -1;
+    top: -50px;
+    right: -45px;
   `,
 };
 
@@ -178,6 +226,9 @@ const Counselor = () => {
         <S.Mobile1 {...mobileAnimation[0]} />
         <S.Mobile2 {...mobileAnimation[1]} />
         <S.Chat {...animatedItem[2]} />
+        <S.Vain1 />
+        <S.Vain2 />
+        <S.Vain3 />
       </S.Blob>
       <Button fill="solid">
         <a target="_blank" href={appStoreLink} rel="noopener noreferrer">

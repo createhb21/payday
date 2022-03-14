@@ -1,4 +1,5 @@
 export { default as logo } from './logo.svg';
+export { default as vain } from './vain.png';
 export { default as arrow } from './arrow.svg';
 export { default as bankBook } from './bank.svg';
 export { default as review1 } from './review-01.png';

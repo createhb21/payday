@@ -31,7 +31,9 @@ const S = {
   `,
   Title: styled.h1`
     ${media.small} {
+      font-weight: 600;
       ${(props) => props.theme.typography.mobileDescription};
+      padding-left: 1rem;
     }
     ${(props) => props.theme.typography.heading};
     color: ${(props) => props.theme.palette.lightBlack};
@@ -80,9 +82,9 @@ const S = {
   `,
   Chat: styled.div`
     ${media.small} {
-      width: calc(100% * 0.47);
-      bottom: 8%;
-      left: 4%;
+      width: calc(100% * 0.52);
+      bottom: -3%;
+      left: 0%;
     }
     width: 280px;
     aspect-ratio: 9 / 16;
@@ -93,9 +95,10 @@ const S = {
   `,
   Phone: styled.div`
     ${media.small} {
-      width: calc(100% * 0.82);
-      bottom: 11%;
-      left: 27%;
+      width: calc(100% * 0.84);
+      aspect-ratio: 10 / 9.5;
+      bottom: 7%;
+      left: 25%;
     }
     width: 600px;
     aspect-ratio: 10 / 9;

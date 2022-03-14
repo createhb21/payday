@@ -42,7 +42,7 @@ const S = {
     ${media.small} {
       max-width: 100%;
       gap: unset;
-      margin-top: 7rem;
+      margin-top: 9rem;
     }
     width: 100%;
     height: calc(100% - 70px);

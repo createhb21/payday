@@ -54,7 +54,7 @@ const S = {
         display: block;
         font-size: 1.5rem;
         font-weight: 900;
-        line-height: 1.5;
+        line-height: 2;
         -webkit-text-stroke: unset;
       }
       -webkit-text-stroke: 1px #91b1ff;

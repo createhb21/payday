@@ -79,7 +79,7 @@ const S = {
     ${media.small} {
       ${(props) => props.theme.typography.mobileDescription};
     }
-    min-height: 200px;
+    min-height: 125px;
     ${(props) => props.theme.typography.description};
 
     & > b {

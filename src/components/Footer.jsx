@@ -21,6 +21,7 @@ const S = {
       grid-template-rows: repeat(4, minmax(170px, auto));
       align-items: center;
       margin-top: -5rem;
+      padding-top: 5rem;
     }
     width: 100%;
     max-width: 1180px;
