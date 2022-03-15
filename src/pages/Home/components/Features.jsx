@@ -12,7 +12,7 @@ import {
 import { useScrollFadeIn, useScrollClipPath } from '../../../hooks';
 
 const S = {
-  Wrapper: styled.section`
+  Wrapper: styled.article`
     ${media.small} {
       max-width: 100vw;
       flex-direction: column;
@@ -43,7 +43,7 @@ const S = {
     flex-direction: column;
     justify-content: center;
   `,
-  Label: styled.p`
+  Label: styled.label`
     ${media.small} {
       ${(props) => props.theme.typography.mobileLabel};
     }
@@ -54,6 +54,7 @@ const S = {
   `,
   Title: styled.h2`
     ${media.small} {
+      color: ${(props) => props.theme.palette.white};
       ${(props) => props.theme.typography.mobileTitle};
     }
     ${(props) => props.theme.typography.subtitle};
@@ -62,6 +63,7 @@ const S = {
   `,
   Description: styled.p`
     ${media.small} {
+      color: ${(props) => props.theme.palette.white};
       ${(props) => props.theme.typography.mobileDescription};
     }
     ${(props) => props.theme.typography.description};
@@ -78,6 +80,7 @@ const S = {
   ListItem: styled.p`
     ${media.small} {
       ${(props) => props.theme.typography.mobileDescription};
+      color: ${(props) => props.theme.palette.white};
     }
     min-height: 125px;
     ${(props) => props.theme.typography.description};
@@ -90,7 +93,11 @@ const S = {
   Blob: styled.div`
     ${media.small} {
       width: 97%;
-      background: #6e98fa;
+      background: linear-gradient(
+        to bottom,
+        ${({ theme }) => theme.palette.primary},
+        ${({ theme }) => theme.palette.accent}
+      );
     }
     width: 580px;
     aspect-ratio: 1 / 1;
@@ -142,7 +149,7 @@ const S = {
     right: -65px;
     background: no-repeat center/cover url(${twinkle2});
   `,
-  Phone1: styled.span`
+  Phone1: styled.div`
     ${media.small} {
       width: calc(100% * 0.85);
       top: 5%;
@@ -155,7 +162,7 @@ const S = {
     left: -150px;
     background: no-repeat center/cover url(${featurePhone});
   `,
-  Phone2: styled.span`
+  Phone2: styled.div`
     ${media.small} {
       width: calc(100% * 0.85);
       top: 15%;
@@ -183,7 +190,7 @@ const Features = () => {
   };
 
   return (
-    <S.Wrapper>
+    <S.Wrapper aria-label="Features">
       <S.TextWrapper>
         <S.Label>Our Features</S.Label>
         <S.Title>사용자 맞춤형 월급 계산</S.Title>

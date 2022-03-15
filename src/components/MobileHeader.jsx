@@ -7,7 +7,7 @@ import { mobileLogo } from '../assets';
 import { calendly, googleForm } from '../constant';
 
 const S = {
-  Wrapper: styled.div`
+  Wrapper: styled.header`
     display: none;
     ${media.small} {
       display: flex;
@@ -50,7 +50,7 @@ const Header = () => {
     };
   }, [handleScroll]);
   return (
-    <S.Wrapper isScroll={isScroll}>
+    <S.Wrapper isScroll={isScroll} aria-label="Header">
       <NavItem text="Contact us" to={calendly} />
       <S.Logo src={mobileLogo} />
       <NavItem text="for CPLA" to={googleForm} />

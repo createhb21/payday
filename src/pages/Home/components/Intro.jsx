@@ -6,7 +6,7 @@ import { useScrollFadeIn } from '../../../hooks';
 import { logo, introChat, introPhone } from '../../../assets';
 
 const S = {
-  Wrapper: styled.section`
+  Wrapper: styled.article`
     ${media.small} {
       max-width: 100vw;
       min-height: 800px;
@@ -65,7 +65,7 @@ const S = {
     border-radius: 50%;
     position: relative;
   `,
-  Description: styled.p`
+  Description: styled.h2`
     ${media.small} {
       width: 100%;
       top: 7%;
@@ -140,7 +140,7 @@ const Intro = () => {
   }, []);
 
   return (
-    <S.Wrapper>
+    <S.Wrapper aria-label="Introduce">
       <S.TextWrapper>
         <S.Title {...animatedItem[0]}>
           월급을 새로 정의하다

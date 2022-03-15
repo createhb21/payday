@@ -6,7 +6,7 @@ import { customer } from '../../../assets';
 import { useScrollFadeIn } from '../../../hooks';
 
 const S = {
-  Wrapper: styled.section`
+  Wrapper: styled.article`
     width: 100vw;
     position: relative;
     background: linear-gradient(
@@ -47,7 +47,7 @@ const S = {
   `,
   Title: styled.h2`
     ${media.small} {
-      font-size: 2rem;
+      ${(props) => props.theme.typography.mobileHeading};
     }
     ${(props) => props.theme.typography.subtitle};
     color: ${(props) => props.theme.palette.white};
@@ -59,8 +59,8 @@ const S = {
   `,
   ImageBox: styled.div`
     ${media.small} {
-      width: 250px;
-      height: 280px;
+      width: 230px;
+      height: 245px;
     }
     width: 350px;
     height: 400px;
@@ -75,7 +75,7 @@ const Question = () => {
   const animatedImage = useScrollFadeIn('up', 0.7);
 
   return (
-    <S.Wrapper>
+    <S.Wrapper aria-label="Question">
       <S.Tilt>
         <svg
           data-name="Layer 1"

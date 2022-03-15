@@ -13,7 +13,7 @@ import { appStoreLink } from '../../../constant';
 import { useScrollFadeIn } from '../../../hooks';
 
 const S = {
-  Wrapper: styled.section`
+  Wrapper: styled.article`
     ${media.small} {
       max-width: 100vw;
       justify-content: space-around;
@@ -32,26 +32,28 @@ const S = {
     display: flex;
     flex-direction: column;
     align-items: center;
-    & > button {
-      border: 1px solid ${(props) => props.theme.palette.primary};
+
+    & > a {
       transition: all 0.2s ease-in-out;
-      a {
+      text-decoration: none;
+      color: ${(props) => props.theme.palette.white};
+      button {
+        border: 1px solid ${(props) => props.theme.palette.primary};
         transition: all 0.2s ease-in-out;
-        text-decoration: none;
-        color: ${(props) => props.theme.palette.white};
       }
       &:hover {
-        transform: scale(1.01);
-        background: transparent;
-        a {
-          opacity: 0.7;
-          font-weight: bold;
+        opacity: 0.7;
+        font-weight: bold;
+        color: ${(props) => props.theme.palette.black};
+        button {
+          transform: scale(1.01);
+          background: transparent;
           color: ${(props) => props.theme.palette.black};
         }
       }
     }
   `,
-  Label: styled.p`
+  Label: styled.label`
     ${media.small} {
       ${(props) => props.theme.typography.mobileLabel};
     }
@@ -149,7 +151,7 @@ const S = {
       background: no-repeat center/cover url(${counselorPhone2});
     }
   `,
-  Vain1: styled.div`
+  Vain1: styled.span`
     ${media.small} {
       width: 60px;
       height: 50px;
@@ -164,7 +166,7 @@ const S = {
     background: no-repeat center/cover url(${vain});
     z-index: -1;
   `,
-  Vain2: styled.div`
+  Vain2: styled.span`
     ${media.small} {
       width: 60px;
       height: 50px;
@@ -179,7 +181,7 @@ const S = {
     top: 150px;
     left: 230px;
   `,
-  Vain3: styled.div`
+  Vain3: styled.span`
     ${media.small} {
       width: 60px;
       height: 50px;
@@ -209,7 +211,7 @@ const Counselor = () => {
   };
 
   return (
-    <S.Wrapper>
+    <S.Wrapper aria-label="Counselors">
       <S.Label>Our Counselors</S.Label>
       <S.Title>
         노동 법률 전문가에게
@@ -230,11 +232,9 @@ const Counselor = () => {
         <S.Vain2 />
         <S.Vain3 />
       </S.Blob>
-      <Button fill="solid">
-        <a target="_blank" href={appStoreLink} rel="noopener noreferrer">
-          앱 다운로드하기
-        </a>
-      </Button>
+      <a target="_blank" href={appStoreLink} rel="noopener noreferrer">
+        <Button fill="solid">앱 다운로드하기</Button>
+      </a>
     </S.Wrapper>
   );
 };

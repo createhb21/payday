@@ -8,8 +8,8 @@ const theme = {
     background: '#f8f5f2',
     white: '#ffffff',
     black: '#222525',
-    lightWhite: '#FDFDFD',
-    lightBlack: '#323232',
+    lightWhite: '#C3C3C5',
+    lightBlack: '#2C2C35',
     lightgray: '#e2e2e2',
     gray: '#6F6F6F',
     darkgray: '#505050',
@@ -63,6 +63,12 @@ const theme = {
       fontWeight: 700,
       fontSize: '1rem',
       border: 0,
+    },
+    mobileHeading: {
+      fontFamily: '"Noto Sans KR", sans-serif',
+      fontSize: '1.7rem',
+      fontWeight: 600,
+      lineHeight: 1.5,
     },
     mobileTitle: {
       fontFamily: '"Noto Sans KR", sans-serif',

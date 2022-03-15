@@ -7,7 +7,7 @@ import { media } from '../styles';
 import { calendly, googleForm } from '../constant';
 
 const S = {
-  Wrapper: styled.div`
+  Wrapper: styled.header`
     ${media.small} {
       display: none;
     }
@@ -22,7 +22,7 @@ const S = {
         ? '5px 5px 10px -5px #00000070'
         : '5px 5px 10px -5px rgba(0, 0, 0, 0.09)'};
   `,
-  Header: styled.header`
+  Header: styled.div`
     ${media.large} {
       padding: 0 30px;
     }
@@ -45,7 +45,7 @@ const S = {
     object-fit: cover;
     cursor: pointer;
   `,
-  Navigation: styled.ul`
+  Navigation: styled.nav`
     max-width: 50%;
     display: flex;
     justify-content: center;
@@ -72,7 +72,7 @@ const Header = () => {
   }, [handleScroll]);
 
   return (
-    <S.Wrapper isScroll={isScroll}>
+    <S.Wrapper isScroll={isScroll} aria-label="Header">
       <S.Header isScroll={isScroll}>
         <S.Logo />
         <S.Navigation>

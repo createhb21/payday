@@ -12,7 +12,11 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     position: relative;
+
+    font-family: 'Noto Sans KR', -apple-system, 'Apple SD Gothic Neo', 'Noto Sans CJK KR', BlinkMacSystemFont, 'Helvetica Neue', 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', arial, 돋움, Dotum, Tahoma, Geneva, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-`;
+  `;
 
 export default GlobalStyle;

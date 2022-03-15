@@ -10,7 +10,7 @@ const S = {
       align-items: flex-end;
       justify-content: center;
       width: calc(100% - 50px);
-      height: calc(100% - 16px);
+      height: calc(100% - 20px);
     }
     position: fixed;
     top: 0px;
@@ -27,9 +27,9 @@ const S = {
       width: calc(70% + 50px);
       height: 1rem;
       padding: 1.55rem 1.77rem;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       margin-right: 0;
-      border-radius: 8px;
+      border-radius: 18px;
       justify-content: flex-start;
       color: ${(props) => props.theme.palette.lightWhite};
       background: ${(props) => props.theme.palette.lightBlack};

@@ -7,7 +7,7 @@ import { calendly } from '../../../constant';
 import { useScrollFadeIn } from '../../../hooks';
 
 const S = {
-  Wrapper: styled.section`
+  Wrapper: styled.article`
     ${media.small} {
       width: 100vw;
     }
@@ -18,7 +18,7 @@ const S = {
     flex-direction: column;
     align-items: center;
   `,
-  Label: styled.p`
+  Label: styled.label`
     display: inline-block;
     ${(props) => props.theme.typography.label};
     color: ${(props) => props.theme.palette.primary};
@@ -26,7 +26,7 @@ const S = {
   `,
   Title: styled.h2`
     ${media.small} {
-      font-size: 2rem;
+      ${(props) => props.theme.typography.mobileHeading};
     }
     ${(props) => props.theme.typography.subtitle};
     color: ${(props) => props.theme.palette.black};
@@ -34,24 +34,19 @@ const S = {
     text-align: center;
   `,
   ButtonCover: styled.div`
-    button {
-      border: 1px solid ${(props) => props.theme.palette.primary};
+    & > a {
       transition: all 0.2s ease-in-out;
-      a {
-        width: 100%;
+      text-decoration: none;
+      color: ${(props) => props.theme.palette.white};
+      button {
+        border: 1px solid ${(props) => props.theme.palette.primary};
         transition: all 0.2s ease-in-out;
-        text-decoration: none;
-        color: ${(props) => props.theme.palette.white};
       }
-      @media (min-width: 768px) {
-        &:hover {
+      &:hover {
+        button {
+          font-weight: bold;
           transform: scale(1.01);
-          background: transparent;
-          a {
-            opacity: 0.7;
-            font-weight: bold;
-            color: ${(props) => props.theme.palette.black};
-          }
+          color: ${(props) => props.theme.palette.black};
         }
       }
     }
@@ -66,7 +61,7 @@ const Meet = () => {
   };
 
   return (
-    <S.Wrapper>
+    <S.Wrapper aria-label="Meeting">
       <S.Label {...animatedItem[0]}>Contact Us</S.Label>
       <S.Title {...animatedItem[1]}>
         미팅을 원하시나요?
@@ -74,11 +69,11 @@ const Meet = () => {
         저희와 상담해보세요!
       </S.Title>
       <S.ButtonCover {...animatedItem[2]}>
-        <Button fill="solid" type="button">
-          <a target="_blank" href={calendly} rel="noopener noreferrer">
+        <a target="_blank" href={calendly} rel="noopener noreferrer">
+          <Button fill="solid" type="button">
             Get a Meet
-          </a>
-        </Button>
+          </Button>
+        </a>
       </S.ButtonCover>
     </S.Wrapper>
   );

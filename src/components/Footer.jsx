@@ -79,7 +79,7 @@ const S = {
   `,
   MenuItem: styled.a`
     ${media.small} {
-      width: 300px;
+      width: 125px;
       margin-bottom: 1rem;
     }
     ${(props) => props.theme.typography.body};
@@ -104,6 +104,10 @@ const S = {
     }
   `,
   Form: styled.form`
+    ${media.small} {
+      margin-top: -0.5rem;
+      margin-bottom: 0.5rem;
+    }
     width: 330px;
     input {
       margin-right: 1rem;
@@ -141,7 +145,7 @@ const Footer = () => {
   };
 
   return (
-    <S.Wrapper>
+    <S.Wrapper aria-label="Footer">
       <S.Info>
         <S.Logo>PAYDAY</S.Logo>
         <S.Text>

@@ -34,11 +34,11 @@ const Layout = (ctx) => {
 export default Layout;
 
 const S = {
-  LayoutImpl: styled.div`
+  LayoutImpl: styled.main`
     width: 100vw;
     height: 100%;
   `,
-  ContentWrapper: styled.main`
+  ContentWrapper: styled.section`
     ${media.small} {
       max-width: 100%;
       gap: unset;
@@ -51,7 +51,7 @@ const S = {
     grid-auto-rows: minmax(720px, auto);
     gap: 5rem;
 
-    & > section:last-child {
+    & > article:last-child {
       transform: translateY(-5rem);
     }
   `,

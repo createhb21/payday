@@ -20,7 +20,7 @@ import {
 } from '../../../hooks';
 
 const S = {
-  Background: styled.section`
+  Background: styled.article`
     width: 100vw;
     position: relative;
     background: linear-gradient(
@@ -43,7 +43,7 @@ const S = {
       fill: ${(props) => props.theme.palette.white};
     }
   `,
-  Wrapper: styled.article`
+  Wrapper: styled.div`
     ${media.small} {
       max-width: 100vw;
       padding: 120px 20px;
@@ -91,7 +91,7 @@ const S = {
     box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px, rgb(0 0 0 / 15%) 0px 8px 30px,
       rgb(255 255 255 / 20%) 0px 0px 0px 1px inset;
   `,
-  Label: styled.p`
+  Label: styled.label`
     ${media.small} {
       font-size: 1rem;
       text-align: center;
@@ -123,23 +123,21 @@ const S = {
       font-weight: 900;
     }
   `,
-  Form: styled.form`
-    button {
-      width: 70%;
+  Form: styled.div`
+    & > a {
       transition: all 0.2s ease-in-out;
-      a {
+      text-decoration: none;
+      color: ${(props) => props.theme.palette.white};
+      button {
+        width: 70%;
+        border: 1px solid ${(props) => props.theme.palette.primary};
         transition: all 0.2s ease-in-out;
-        text-decoration: none;
-        color: ${(props) => props.theme.palette.white};
       }
-      @media (min-width: 768px) {
-        &:hover {
+      &:hover {
+        button {
+          font-weight: bold;
           transform: scale(1.01);
-          a {
-            opacity: 0.7;
-            font-weight: bold;
-            color: ${(props) => props.theme.palette.black};
-          }
+          color: ${(props) => props.theme.palette.black};
         }
       }
     }
@@ -158,7 +156,6 @@ const S = {
     }
     width: 150%;
     position: relative;
-    /* z-index: 10; */
   `,
   Review: styled.div`
     width: 100%;
@@ -167,13 +164,13 @@ const S = {
     background: no-repeat center/cover url(${(props) => props.image});
 
     &:nth-child(1) {
-      top: -30px;
+      top: -20px;
     }
     &:nth-child(2) {
-      top: 130px;
+      top: 137px;
     }
     &:nth-last-child(1) {
-      top: 267px;
+      top: 270px;
     }
   `,
   Stores: styled.span`
@@ -184,7 +181,7 @@ const S = {
     width: 100%;
     height: 100px;
     position: absolute;
-    bottom: 16px;
+    bottom: 15px;
     left: 10px;
     display: flex;
     align-items: center;
@@ -230,19 +227,19 @@ const AppStore = () => {
     }
   };
 
-  const newAni = {
+  const mobileReviews = {
     0: useScrollFadeIn('up', 1, 0),
     1: useScrollFadeIn('up', 1, 0.2),
     2: useScrollFadeIn('up', 1, 0.3),
   };
 
-  const newAnimation = {
+  const mobilePhones = {
     0: useScrollFadeIn('up', 1, 0),
     1: useScrollFadeIn('up', 1, 0.2),
   };
 
   return (
-    <S.Background>
+    <S.Background aria-label="GetStart">
       <S.Tilt>
         <svg
           data-name="Layer 1"
@@ -274,12 +271,12 @@ const AppStore = () => {
             <br />
             App store 별점 <span {...animatedItem[3]}>0</span>
           </S.Description>
-          <S.Form {...animatedItem[4]} onSubmit={(e) => e.preventDefault()}>
-            <Button fill="solid" type="submit">
-              <a target="_blank" href={googleForm} rel="noopener noreferrer">
+          <S.Form {...animatedItem[4]}>
+            <a target="_blank" href={googleForm} rel="noopener noreferrer">
+              <Button fill="solid" type="submit">
                 Become a partner
-              </a>
-            </Button>
+              </Button>
+            </a>
           </S.Form>
         </S.TextWrapper>
         <S.Image>
@@ -288,7 +285,7 @@ const AppStore = () => {
               <S.Review
                 image={item.review}
                 key={item.id}
-                {...newAni[item.id]}
+                {...mobileReviews[item.id]}
               />
             ))}
           </S.Reviews>
@@ -297,7 +294,7 @@ const AppStore = () => {
               <S.Store
                 src={item.store}
                 key={item.id}
-                {...newAnimation[item.id]}
+                {...mobilePhones[item.id]}
                 onClick={() => handleSnackBar(item.id)}
               />
             ))}

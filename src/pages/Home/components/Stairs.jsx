@@ -7,7 +7,7 @@ import { keywords, showDown } from '../../../constant';
 import { useScrollTextIn, useScrollFadeIn } from '../../../hooks';
 
 const S = {
-  Background: styled.section`
+  Background: styled.article`
     ${media.small} {
       max-width: 100vw;
     }
@@ -19,7 +19,7 @@ const S = {
     }
     width: 100%;
     max-width: 1180px;
-    margin: auto;
+    margin: 0 auto;
     padding: 100px 0;
   `,
   Article: styled.div`
@@ -68,31 +68,25 @@ const S = {
     ${media.small} {
       width: 100%;
       margin-top: 2rem;
+      flex-direction: column;
     }
-    width: 750px;
-    margin: 0 auto;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   `,
   Logo: styled.div`
-    ${media.xsmall} {
-      width: 160px;
-      height: 1.6rem;
-    }
     ${media.small} {
-      width: 170px;
-      height: 1.7rem;
+      width: 200px;
+      height: 2rem;
     }
     width: 400px;
     height: 4rem;
     background: no-repeat center/cover url(${logo});
   `,
   LogoText: styled.p`
-    ${media.xsmall} {
-      font-size: 1.25rem;
-    }
     ${media.small} {
+      margin-top: 1rem;
       ${(props) => props.theme.typography.mobileTitle};
     }
     ${(props) => props.theme.typography.subtitle};
@@ -128,7 +122,7 @@ const Stairs = () => {
   const animationPayday = useScrollFadeIn('down', 2, 0.4);
 
   return (
-    <S.Background>
+    <S.Background aria-label="Resolving">
       <S.Wrapper>
         <S.Article>
           {keywords.map((item, index) => (
@@ -145,7 +139,6 @@ const Stairs = () => {
               {item.text}
             </p>
           ))}
-
           <S.LogoTicle {...animationPayday}>
             <S.Logo />
             <S.LogoText>에서 해결해 드립니다!</S.LogoText>
