@@ -29,7 +29,7 @@ const S = {
       padding: 1.55rem 1.77rem;
       font-size: 0.95rem;
       margin-right: 0;
-      border-radius: 18px;
+      border-radius: 20px;
       justify-content: flex-start;
       color: ${(props) => props.theme.palette.lightWhite};
       background: ${(props) => props.theme.palette.lightBlack};
