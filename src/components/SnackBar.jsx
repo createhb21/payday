@@ -30,7 +30,6 @@ const S = {
       font-size: 0.95rem;
       margin-right: 0;
       border-radius: 20px;
-      justify-content: flex-start;
       color: ${(props) => props.theme.palette.lightWhite};
       background: ${(props) => props.theme.palette.lightBlack};
     }

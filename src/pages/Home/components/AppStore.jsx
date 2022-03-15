@@ -11,7 +11,7 @@ import {
 } from '../../../assets';
 import { media } from '../../../styles';
 import { Button } from '../../../components';
-import { SnackBarContext } from '../../../context';
+import { Context } from '../../../context';
 import { googleForm, appStoreLink } from '../../../constant';
 import {
   useScrollFadeIn,
@@ -218,7 +218,7 @@ const AppStore = () => {
     5: useScrollClipPath('up'),
   };
 
-  const { setSnackbarMessage } = useContext(SnackBarContext);
+  const { setSnackbarMessage } = useContext(Context);
   const handleSnackBar = (id) => {
     if (id > 0) {
       setSnackbarMessage('준비중입니다 😎');

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Button from './Button';
 import TextField from './TextField';
 import { media } from '../styles';
-import { SnackBarContext } from '../context';
+import { Context } from '../context';
 import {
   calendly,
   googleForm,
@@ -138,7 +138,7 @@ const S = {
 };
 
 const Footer = () => {
-  const { setSnackbarMessage } = useContext(SnackBarContext);
+  const { setSnackbarMessage } = useContext(Context);
   const handleSnackBar = (e) => {
     e.preventDefault();
     setSnackbarMessage('준비중입니다 😎');

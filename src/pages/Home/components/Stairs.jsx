@@ -57,8 +57,6 @@ const S = {
         line-height: 2;
         -webkit-text-stroke: unset;
       }
-      -webkit-text-stroke: 1px #91b1ff;
-      -webkit-text-fill-color: ${(props) => props.theme.palette.white};
     }
     .mobile-stairs.is-running {
       animation: ${showDown} 2.5s forwards cubic-bezier(0, 0, 0.2, 1);

@@ -117,7 +117,7 @@ const S = {
   Chat: styled.div`
     ${media.small} {
       top: 20%;
-      left: -8%;
+      left: -6%;
       height: 300px;
     }
     width: 110%;

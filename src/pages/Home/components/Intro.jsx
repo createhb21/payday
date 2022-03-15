@@ -28,12 +28,13 @@ const S = {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    transform: translateX(-16px);
   `,
   Title: styled.h1`
     ${media.small} {
       font-weight: 500;
-      ${(props) => props.theme.typography.mobileDescription};
       padding-left: 1rem;
+      ${(props) => props.theme.typography.mobileDescription};
     }
     ${(props) => props.theme.typography.heading};
     color: ${(props) => props.theme.palette.lightBlack};

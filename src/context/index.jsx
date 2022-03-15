@@ -1,3 +1,3 @@
 import { createContext } from 'react';
 
-export const SnackBarContext = createContext(null);
+export const Context = createContext(null);

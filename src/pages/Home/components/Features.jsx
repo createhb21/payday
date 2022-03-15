@@ -63,6 +63,7 @@ const S = {
   `,
   Description: styled.p`
     ${media.small} {
+      font-weight: bold;
       color: ${(props) => props.theme.palette.white};
       ${(props) => props.theme.typography.mobileDescription};
     }
@@ -79,6 +80,7 @@ const S = {
   `,
   ListItem: styled.p`
     ${media.small} {
+      font-weight: bold;
       ${(props) => props.theme.typography.mobileDescription};
       color: ${(props) => props.theme.palette.white};
     }
@@ -86,7 +88,6 @@ const S = {
     ${(props) => props.theme.typography.description};
 
     & > b {
-      font-weight: bold;
       color: ${(props) => props.theme.palette.accent};
     }
   `,

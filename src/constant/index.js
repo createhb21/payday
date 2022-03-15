@@ -40,7 +40,7 @@ export const smooth = keyframes`
 export const showDown = keyframes`
     from {
       -webkit-text-stroke: 1px #91b1ff;
-      -webkit-text-fill-color: ${(props) => props.theme.palette.white};
+      -webkit-text-fill-color: #ffffff;
     }
     to {
       -webkit-text-stroke: #91b1ff;

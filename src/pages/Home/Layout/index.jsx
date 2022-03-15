@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import { media } from '../../../styles';
 import { arrow } from '../../../assets';
+import { Context } from '../../../context';
 import { useSnackBar } from '../../../hooks';
-import { SnackBarContext } from '../../../context';
 import {
   Header,
   Footer,
@@ -19,12 +19,12 @@ const Layout = (ctx) => {
 
   return (
     <S.LayoutImpl>
-      <SnackBarContext.Provider value={value}>
+      <Context.Provider value={value}>
         <MobileHeader />
         <Header />
         <S.ContentWrapper>{ctx.children}</S.ContentWrapper>
         <Footer />
-      </SnackBarContext.Provider>
+      </Context.Provider>
       <FloatingButton src={arrow} />
       {snackbarMessage && <Snackbar key={Math.random()} />}
     </S.LayoutImpl>
