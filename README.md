@@ -6,7 +6,7 @@
 
 ### 📱 [App Store](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%8D%B0%EC%9D%B4-payday/id1598231344)
 
-### 💻 [Web Demo](https://paydayapp.netlify.app/)
+### 💻 [Web Demo](https://www.everypd.co.kr/)
 
 
 
