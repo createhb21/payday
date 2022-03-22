@@ -187,7 +187,7 @@ const S = {
     align-items: center;
   `,
   Store: styled.img.attrs({
-    alt: 'store',
+    alt: '페이데이 앱',
   })`
     ${media.small} {
       width: 200px;
