@@ -25,6 +25,7 @@ const S = {
   `,
   Logo: styled.img.attrs({
     src: `${mobileLogo}`,
+    alt: 'PAYDAY | 페이데이',
   })`
     width: 50px;
     cursor: pointer;

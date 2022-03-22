@@ -38,6 +38,7 @@ const S = {
   `,
   Logo: styled.img.attrs({
     src: `${logo}`,
+    alt: 'PAYDAY | 페이데이',
   })`
     width: 180px;
     height: 100px;
