@@ -5,6 +5,7 @@ import Button from './Button';
 import TextField from './TextField';
 import { media } from '../styles';
 import { Context } from '../context';
+import { rss } from '../assets';
 import {
   calendly,
   googleForm,
@@ -131,9 +132,19 @@ const S = {
     display: flex;
     justify-content: center;
     border-top: 1px solid ${(props) => props.theme.palette.lightgray};
+    position: relative;
     span {
       ${(props) => props.theme.typography.caption};
     }
+  `,
+  RSS: styled.a`
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: no-repeat center/cover url(${rss});
   `,
 };
 
@@ -196,6 +207,7 @@ const Footer = () => {
       </S.Subscribe>
       <S.Bottom>
         <span>PAYDAY © 2021</span>
+        <S.RSS target="_blank" href="/sitemap.xml" rel="noopener noreferrer" />
       </S.Bottom>
     </S.Wrapper>
   );

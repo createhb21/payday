@@ -1,3 +1,4 @@
+export { default as rss } from './rss.svg';
 export { default as logo } from './logo.svg';
 export { default as vain } from './vain.png';
 export { default as arrow } from './arrow.svg';
