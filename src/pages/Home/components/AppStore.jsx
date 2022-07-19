@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import {
@@ -11,7 +11,6 @@ import {
 } from '../../../assets';
 import { media } from '../../../styles';
 import { Button } from '../../../components';
-import { Context } from '../../../context';
 import { googleForm, appStoreLink, googlePlayLink } from '../../../constant';
 import {
   useScrollFadeIn,
