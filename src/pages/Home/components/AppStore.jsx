@@ -12,7 +12,7 @@ import {
 import { media } from '../../../styles';
 import { Button } from '../../../components';
 import { Context } from '../../../context';
-import { googleForm, appStoreLink } from '../../../constant';
+import { googleForm, appStoreLink, googlePlayLink } from '../../../constant';
 import {
   useScrollFadeIn,
   useScrollCount,
@@ -218,10 +218,9 @@ const AppStore = () => {
     5: useScrollClipPath('up'),
   };
 
-  const { setSnackbarMessage } = useContext(Context);
   const handleSnackBar = (id) => {
     if (id > 0) {
-      setSnackbarMessage('준비중입니다 😎');
+      window.open(googlePlayLink, '_blank');
     } else {
       window.open(appStoreLink, '_blank');
     }
@@ -269,7 +268,7 @@ const AppStore = () => {
               ⭐️⭐️⭐️⭐️⭐️{' '}
             </span>
             <br />
-            App store 별점 <span {...animatedItem[3]}>0</span>
+            App store 별점 <span>4.9</span>
           </S.Description>
           <S.Form {...animatedItem[4]}>
             <a target="_blank" href={googleForm} rel="noopener noreferrer">

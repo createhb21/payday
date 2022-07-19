@@ -10,6 +10,9 @@ export const aboutUs =
 export const FrequentlyAsk =
   'https://quilt-psychology-4c4.notion.site/Frequently-Ask-c908329dc3f245d0958c8dac91aaeada';
 
+export const googlePlayLink =
+  'https://play.google.com/store/apps/details?id=com.everypd.payday';
+
 export const keywords = [
   { id: 0, text: '주휴수당 주 52시간근무제 탄력적' },
   { id: 1, text: '근무제도 유연근무제 연차촉진제' },

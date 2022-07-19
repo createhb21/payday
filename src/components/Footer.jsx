@@ -10,6 +10,7 @@ import {
   calendly,
   googleForm,
   appStoreLink,
+  googlePlayLink,
   aboutUs,
   FrequentlyAsk,
 } from '../constant';
@@ -186,7 +187,13 @@ const Footer = () => {
         >
           App Store
         </S.MenuItem>
-        <S.MenuItem onClick={handleSnackBar}>Google Play</S.MenuItem>
+        <S.MenuItem
+          target="_blank"
+          href={googlePlayLink}
+          rel="noopener noreferrer"
+        >
+          Google Play
+        </S.MenuItem>
         <S.MenuItem
           target="_blank"
           href={FrequentlyAsk}
