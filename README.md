@@ -4,11 +4,11 @@
 
 > 🥰 똑똑한 재테크를 위한 필수 월급 관리 어플 및 공인노무사 중개 플랫폼
 
-### 📱 [App Store](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%8D%B0%EC%9D%B4-payday/id1598231344)
+##### 📱 [App Store](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%8D%B0%EC%9D%B4-payday/id1598231344)
 
-### 📱 [Google Play Store](https://play.google.com/store/apps/details?id=com.everypd.payday)
+##### 📱 [Google Play Store](https://play.google.com/store/apps/details?id=com.everypd.payday)
 
-### 💻 [Web Site](https://www.everypd.co.kr/)
+##### 💻 [Web Site](https://www.everypd.co.kr/)
 
 
 
