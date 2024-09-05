@@ -161,9 +161,9 @@ const Footer = () => {
       <S.Info>
         <S.Logo>PAYDAY</S.Logo>
         <S.Text>
-          <span>pledge1226@naver.com</span>
+          <span>allwage.lab@gmail.com</span>
           <span>+10 4745 9497</span>
-          <span>33 Hangeulbiseok-ro 24da-gil</span>
+          <span>서울특별시 도봉구 마들로 13길 61, 507호</span>
         </S.Text>
       </S.Info>
       <S.Menu>
