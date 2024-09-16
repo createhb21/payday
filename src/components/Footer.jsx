@@ -159,11 +159,13 @@ const Footer = () => {
   return (
     <S.Wrapper aria-label="Footer">
       <S.Info>
-        <S.Logo>PAYDAY</S.Logo>
+        <S.Logo>(주) 올웨이지</S.Logo>
         <S.Text>
-          <span>allwage.lab@gmail.com</span>
-          <span>+10 4745 9497</span>
-          <span>서울특별시 도봉구 마들로 13길 61, 507호</span>
+          <span>대표이사: 정영웅</span>
+          <span>사업자등록번호: 423-81-03650</span>
+          <span>EMAIL: allwage.lab@gmail.com</span>
+          <span>주소: 서울특별시 도봉구 마들로 13길 61, 507호</span>
+          <span>고객센터: 010-4745-9497</span>
         </S.Text>
       </S.Info>
       <S.Menu>
@@ -213,7 +215,7 @@ const Footer = () => {
         <S.Text>Let's subscribe our service, Payday! </S.Text>
       </S.Subscribe>
       <S.Bottom>
-        <span>PAYDAY © 2021</span>
+        <span>AllWage © 2024</span>
         <S.RSS target="_blank" href="/sitemap.xml" rel="noopener noreferrer" />
       </S.Bottom>
     </S.Wrapper>

@@ -6,7 +6,7 @@ export const appStoreLink =
   'https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%8D%B0%EC%9D%B4-payday/id1598231344';
 
 export const aboutUs =
-  'https://quilt-psychology-4c4.notion.site/PAYDAY-65e6bf6629004410a9c3810f546e1d05';
+  'http://brawny-enthusiasm-f87.notion.site/d5fe7f9df591415db765c06747b9fc46?pvs=25';
 export const FrequentlyAsk =
   'https://quilt-psychology-4c4.notion.site/Frequently-Ask-c908329dc3f245d0958c8dac91aaeada';
 
